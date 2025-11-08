@@ -1,8 +1,8 @@
-import * as React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { useNavigation } from "expo-router";
-import { StyleSheet, View, Text } from "react-native";
+import React from "react";
+import { Text, View, StyleSheet } from "react-native";
+import { useNavigation } from '@react-navigation/native'
+import { Link } from 'expo-router';
+
 
 
 export default function Home() {
@@ -10,7 +10,9 @@ export default function Home() {
 
     return (
         <View style={styles.container}>
-            <Text> Hello, how are you? </Text> </View>
+            <Text> Hello, how are you? </Text> 
+    
+        </View>
     )
 }
 
@@ -21,3 +23,4 @@ const styles = StyleSheet.create( {
   }
 }
 )
+

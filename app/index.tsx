@@ -1,17 +1,18 @@
-import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
+import Home from "@/screens/Home";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import * as React from "react";
-import Home from "./screens/Home";
-
+import { ThemeProvider } from "@react-navigation/native";
 
 const Stack = createNativeStackNavigator();
 
 export default function Index() {
   return (
-    <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen 
+        name="Home" 
+        component={Home}
+        options={{ title: 'Dashboard'}} 
+        />
       </Stack.Navigator>
-    </NavigationContainer>
   );
 }
