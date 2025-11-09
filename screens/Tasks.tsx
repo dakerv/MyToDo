@@ -5,7 +5,7 @@ import { Link } from 'expo-router';
 
 
 
-export default function Home() {
+export default function Tasks() {
     const navigation = useNavigation();
 
     return (
