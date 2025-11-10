@@ -1,8 +1,16 @@
 import { Link } from 'expo-router';
-import React from "react";
+import React, { useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 
 export default function Tasks() {
+  const [isSideBarOpen, setIsSidebarOpen] = useState(false);
+  const [activePage, setActivePage] = useState('Tasks');
+
+  const handleActivePage = (page: 'Tasks' | 'Reminders' | 'Themes') => {
+    setActivePage(page);
+    setIsSidebarOpen(false);
+  }
+
    
    
     return (

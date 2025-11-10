@@ -13,10 +13,8 @@ const sidebarItems = [
     { id: '3', title: 'Themes', link: '/Themes' },
 ];
 
-export default function Sidebar () {
-    const [ sidebarOpen, setSidebarOpen ] = useState(false);
-    const [ activePage, setActivePage ] = useState('Tasks');
-
+export default function Sidebar ({onSelectPage}: SidebarProps) {
+  
     return (
         <View style={styles.container}>
             <View style={styles.myToDoAndExitButtonContainer}> </View>
