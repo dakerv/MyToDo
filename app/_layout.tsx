@@ -8,8 +8,15 @@ export default function RootLayout() {
       headerTitle: 'Tasks'
     }} />
 
-    <Stack.Screen name='Reminders' options={{ headerShown: false }} />
-    <Stack.Screen name='Theme' options={{ headerShown: false}} />
+    <Stack.Screen name='Reminders' 
+    options={{ 
+      headerTitle: 'Reminders' 
+    }} />
+
+    <Stack.Screen name='Theme' 
+    options={{ 
+      headerTitle: 'Themes'
+    }} />
   </Stack>
   )
 }
