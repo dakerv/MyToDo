@@ -7,7 +7,7 @@ export default function Reminders () {
     return (
         <View style = {styles.container}>
             <Text> Hello, Welcome  </Text> 
-            <Link href={'/screens/Themes'} style={styles.button}>
+            <Link href={'/Themes'} style={styles.button}>
             Go to the Themes page. </Link>
         </View>
     )
