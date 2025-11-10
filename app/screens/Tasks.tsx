@@ -13,7 +13,8 @@ export default function Tasks() {
     return (
         <View style={styles.container}>
             <Text> Hello, how are you? </Text> 
-            <Link href={'/screens/Reminders'} />
+            <Link href={'/screens/Reminders'} style={styles.button}>
+            Go to the Reminders Page </Link>
         </View>
     )
 }
@@ -22,6 +23,11 @@ const styles = StyleSheet.create( {
   container: {
     flex: 1,
     padding: 20,
+  },
+  button: {
+    textDecorationLine: 'underline',
+    color: 'blue',
+    fontSize: 20
   }
 }
 )
