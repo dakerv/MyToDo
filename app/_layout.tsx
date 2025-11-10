@@ -1,16 +1,20 @@
 import { Stack } from "expo-router";
+import Tasks from "./(screens)/Tasks";
 
 export default function RootLayout() {
   return (
-  <Stack>
-    <Stack.Screen name="Tasks" 
+  <Stack initialRouteName="Tasks">
+    <Stack.Screen 
+    name="Tasks"
     options= {{ 
-      headerTitle: 'Tasks'
+      headerTitle: 'Tasks',
+      
     }} />
 
     <Stack.Screen name='Reminders' 
     options={{ 
-      headerTitle: 'Reminders' 
+      headerTitle: 'Reminders',
+      headerShown: false
     }} />
 
     <Stack.Screen name='Theme' 
