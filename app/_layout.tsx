@@ -1,26 +1,17 @@
-import { Tabs } from "expo-router";
-import Tasks from "./screens/Tasks";
+import { Stack } from "expo-router";
 
 export default function TabsLayout() {
   return (
-  <Stack initialRouteName="Tasks">
+  <Stack>
     <Stack.Screen 
     name="Tasks"
-    options= {{ 
-      headerTitle: 'Tasks',
-      
-    }} />
+    options= {{ headerTitle: 'Tasks'}} />
 
     <Stack.Screen name='Reminders' 
-    options={{ 
-      headerTitle: 'Reminders',
-      headerShown: false
-    }} />
+    options={{  headerTitle: 'Reminders' }} />
 
-    <Stack.Screen name='Theme' 
-    options={{ 
-      headerTitle: 'Themes'
-    }} />
+    <Stack.Screen name='Themes' 
+    options={{ headerTitle: 'Themes' }} />
   </Stack>
   )
 }
