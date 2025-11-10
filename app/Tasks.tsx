@@ -8,13 +8,12 @@ export default function Tasks() {
     return (
         <View style={styles.container}>
           <View style={styles.drawerRevealIconContainer}>
-            <Link href={'/modal'}> 
+          
             <Image
               source={require('../assets/images/Button.png')}
               style={ styles.drawerRevealIcon }
             />
-            </Link>
-            
+          
           </View>
           
             

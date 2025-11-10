@@ -16,7 +16,7 @@ export default function TabsLayout() {
     options={{ headerTitle: 'Themes' }} />
 
     <Stack.Screen name="sidebar"
-    options={{ presentation: 'sidebar' }} />
+     />
   </Stack>
   )
 }
