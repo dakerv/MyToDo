@@ -1,6 +1,7 @@
 import { Link } from 'expo-router';
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
+import Sidebar from "../components/Sidebar";
 
 export default function Tasks() {
   const [isSideBarOpen, setIsSidebarOpen] = useState(false);
@@ -10,9 +11,7 @@ export default function Tasks() {
     setActivePage(page);
     setIsSidebarOpen(false);
   }
-
-   
-   
+  
     return (
         <View style={styles.container}>
           <View style={styles.drawerRevealIconContainer}>
