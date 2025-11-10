@@ -1,7 +1,7 @@
-import { Stack } from "expo-router";
-import Tasks from "./(screens)/Tasks";
+import { Tabs } from "expo-router";
+import Tasks from "./screens/Tasks";
 
-export default function RootLayout() {
+export default function TabsLayout() {
   return (
   <Stack initialRouteName="Tasks">
     <Stack.Screen 
