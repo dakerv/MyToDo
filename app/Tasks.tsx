@@ -42,7 +42,7 @@ const styles = StyleSheet.create( {
     paddingTop: 60,
     paddingHorizontal: 20,
     paddingVertical: 20,
-    backgroundColor: 'black'
+    backgroundColor: 'white'
   },
   button: {
     textDecorationLine: 'underline',
