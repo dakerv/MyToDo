@@ -1,6 +1,6 @@
-import React, { useState} from "react";
-import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import Sidebar from '@/components/sidebar';
+import React, { useState } from "react";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function Tasks() {
   const [isSideBarOpen, setIsSidebarOpen] = useState(false);
@@ -44,7 +44,7 @@ const styles = StyleSheet.create( {
     paddingTop: 60,
     paddingHorizontal: 20,
     paddingVertical: 20,
-    backgroundColor: 'white'
+    backgroundColor: 'black'
   },
   button: {
     textDecorationLine: 'underline',
