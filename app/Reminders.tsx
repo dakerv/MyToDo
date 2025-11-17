@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import Sidebar, { Pages } from '@/components/sidebar';
 
 
@@ -16,7 +16,14 @@ export default function Reminders () {
 
     return (
         <View style = {styles.container}>
-            <Text> Hello, Welcome  </Text> 
+            <View style={styles.drawerRevealIconContainer}>
+                <TouchableOpacity onPress={() => setIsSidebarOpen (!isSideBarOpen)}>
+                    <Image
+                    source={require('../assets/images/Button.png')}
+                    style={ styles.drawerRevealIcon }
+                    />
+                </TouchableOpacity>
+            </View>
             
 
 
@@ -37,5 +44,12 @@ const styles = StyleSheet.create ({
     button: {
         fontSize: 15,
         textDecorationLine: 'underline',
-    }
+    },
+    drawerRevealIconContainer: {
+    width: '100%',
+    padding: 20
+  },
+    drawerRevealIcon: {
+    alignSelf: 'flex-start',
+  },
 })
