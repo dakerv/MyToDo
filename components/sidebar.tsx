@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, FlatList, Animated } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, FlatList, Animated, Image } from "react-native";
 
 type Pages = 'Tasks' | 'Reminders' | 'Themes';
 
@@ -30,6 +30,12 @@ export default function Sidebar ({onSelectPage, isOpen, selectedPage }: SidebarP
     return (
         <Animated.View 
         style={[styles.sidebarMainContainer, { transform: [{ translateX: slideAnim }]}]}>
+
+                <View style = {styles.myToDoAndExitButtonContainer}>
+                    <Text style = {styles.myAppTextStyles}> My App </Text>
+                    <Image source = { require ('../assets/images/exitButton.png')} />
+                </View>
+
                 <FlatList
                 data={sidebarItems}
                 keyExtractor={(item) => item.id}
@@ -62,14 +68,21 @@ const styles = StyleSheet.create ({
         zIndex: 1000,
     },
     myToDoAndExitButtonContainer: {
+        marginTop: 50,
         width: '100%',
         height: 50,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     },
     sidebarItem: {
         padding: 15,
         borderBottomWidth: 1,
+        marginTop: 20
     },
     selectedSidebarItem: {
         backgroundColor: '#d3d3d3',
-    }
+    },
+    myAppTextStyles: {
+        fontSize: 17
+    },
 })

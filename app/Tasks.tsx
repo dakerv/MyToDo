@@ -28,10 +28,6 @@ export default function Tasks() {
             />
             </TouchableOpacity>
           </View>
-
-          <Text style = {{ color: 'white', fontSize: 24}}>
-            Tasks Page
-          </Text>
           
             
         </View>
