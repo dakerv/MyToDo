@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Animated, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-type Pages = 'Tasks' | 'Reminders' | 'Themes';
+export type Pages = 'Tasks' | 'Reminders' | 'Themes';
 
 type SidebarProps = {
     onSelectPage: (page: Pages) => void;
@@ -28,7 +28,8 @@ export default function Sidebar ({onSelectPage, isOpen, selectedPage }: SidebarP
     }, [isOpen]);
   
     return (
-        <Animated.View 
+        <Animated.View
+        pointerEvents={isOpen ? 'auto' : 'none'}
         style={[styles.sidebarMainContainer, { transform: [{ translateX: slideAnim }]}]}>
 
                 <View style = {styles.myToDoAndExitButtonContainer}>
@@ -49,7 +50,7 @@ export default function Sidebar ({onSelectPage, isOpen, selectedPage }: SidebarP
                     ]}>
                         
                         <View style={styles.imageAndTextStyles}>
-                        <Image source={item.image}/>
+                        <Image source={item.image} style={styles.imageStyleOnly}/>
                         <Text style= {styles.textStyleOnly}>{item.title}</Text>
                         </View>
                     </TouchableOpacity>
@@ -86,7 +87,7 @@ const styles = StyleSheet.create ({
         color: 'white'
     },
     selectedSidebarItem: {
-        backgroundColor: '#d3d3d3',
+        backgroundColor: "rgba(255, 255, 255, 0.1)",
     },
     flatListItems: {
         marginTop: 20,
@@ -106,5 +107,10 @@ const styles = StyleSheet.create ({
         color: 'white',
         fontSize: 18,
         marginLeft: 15
+    },
+    imageStyleOnly: {
+        width: 20,
+        height: 20,
+        tintColor: 'white'
     }
 })

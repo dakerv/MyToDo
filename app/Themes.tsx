@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, StyleSheet } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function Themes () {
     return (
@@ -12,10 +12,10 @@ export default function Themes () {
 const styles = StyleSheet.create ({
     container: {
         flex: 1,
-        padding: 20
+        padding: 50
     },
     introductoryText: {
-        fontSize: 20,
+        fontSize: 50,
         color: 'white'
     }
 })

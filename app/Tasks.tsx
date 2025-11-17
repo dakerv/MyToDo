@@ -1,10 +1,10 @@
-import Sidebar from '@/components/sidebar';
+import Sidebar, { Pages } from '@/components/sidebar';
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function Tasks() {
   const [isSideBarOpen, setIsSidebarOpen] = useState(false);
-  const [activePage, setActivePage] = useState('Tasks');
+  const [activePage, setActivePage] = useState<Pages>('Tasks');
 
   const handleActivePage = (page: 'Tasks' | 'Reminders' | 'Themes') => {
     setActivePage(page);
@@ -13,12 +13,6 @@ export default function Tasks() {
 
     return (
         <View style={styles.container}>
-           
-           <Sidebar 
-            isOpen={isSideBarOpen} 
-            onSelectPage={handleActivePage} 
-            selectedPage={activePage}
-            />
 
           <View style={styles.drawerRevealIconContainer}>
             <TouchableOpacity onPress={() => setIsSidebarOpen (!isSideBarOpen)}>
@@ -28,8 +22,16 @@ export default function Tasks() {
             />
             </TouchableOpacity>
           </View>
+
+          <View style = {styles.firstView}>
+            <Text style = {styles.hiButton}> Hi </Text>
+          </View>
           
-            
+            <Sidebar 
+            isOpen={isSideBarOpen} 
+            onSelectPage={handleActivePage} 
+            selectedPage={activePage}
+            />
         </View>
     )
 }
@@ -40,7 +42,8 @@ const styles = StyleSheet.create( {
     paddingTop: 60,
     paddingHorizontal: 20,
     paddingVertical: 20,
-    backgroundColor: 'black'
+    backgroundColor: 'black',
+    zIndex: 1
   },
   button: {
     textDecorationLine: 'underline',
@@ -53,7 +56,17 @@ const styles = StyleSheet.create( {
   },
   drawerRevealIcon: {
     alignSelf: 'flex-start',
-  }
+  },
+  hiButton: {
+    fontSize: 50,
+    color: 'white'
+ },
+ firstView: {
+    backgroundColor: 'grey',
+    height: 200, 
+    width: '100%',
+    marginTop: 50
+}
 }
 )
 
