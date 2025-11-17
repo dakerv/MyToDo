@@ -9,7 +9,7 @@ export default function Reminders () {
     const [isSideBarOpen, setIsSidebarOpen] = useState(false);
     const [activePage, setActivePage] = useState<Pages>('Reminders')
 
-    const handleActivePage = (page: 'Tasks' | 'Reminders' | 'Themes') => {
+    const handleActivePage = (page: Pages) => {
         setActivePage(page);
         setIsSidebarOpen(false);
     }

@@ -7,7 +7,7 @@ export default function Themes () {
     const [isSideBarOpen, setIsSidebarOpen] = useState(false);
     const [activePage, setActivePage] = useState<Pages>('Themes')
 
-    const handleActivePage = (page: 'Tasks' | 'Reminders' | 'Themes') => {
+    const handleActivePage = (page: Pages) => {
         setIsSidebarOpen(false);
         setActivePage(page);
     }

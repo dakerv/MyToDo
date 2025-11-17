@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from "react";
+import { router } from "expo-router";
 import { Animated, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export type Pages = 'Tasks' | 'Reminders' | 'Themes';
+export type PageLinks = '/Tasks' | '/Reminders' | '/Themes';
 
 type SidebarProps = {
     onSelectPage: (page: Pages) => void;
@@ -9,7 +11,7 @@ type SidebarProps = {
     selectedPage: Pages;
 }
 
-const sidebarItems: { id: string; title: Pages; link: string; image: any }[] = [
+const sidebarItems: { id: string; title: Pages; link: PageLinks; image: any }[] = [
     { id: '1', title: 'Tasks', link: '/Tasks', image: require('../assets/images/tasksTick.png') },
     { id: '2', title: 'Reminders', link: '/Reminders', image: require('../assets/images/reminderBell.png') },
     { id: '3', title: 'Themes', link: '/Themes', image: require('../assets/images/themesPalette.png') },
@@ -43,7 +45,11 @@ export default function Sidebar ({onSelectPage, isOpen, selectedPage }: SidebarP
                 data={sidebarItems}
                 keyExtractor={(item) => item.id}
                 renderItem={({item}) => (
-                    <TouchableOpacity onPress={() => onSelectPage(item.title)}
+                    <TouchableOpacity 
+                    onPress={() => {
+                        onSelectPage(item.title)
+                        router.push(item.link)
+                    }}
                     style={[
                         styles.sidebarItem,
                         selectedPage === item.title && styles.selectedSidebarItem
