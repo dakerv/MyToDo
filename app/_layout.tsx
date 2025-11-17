@@ -10,10 +10,10 @@ export default function TabsLayout() {
       }} />
 
     <Stack.Screen name='Reminders' 
-    options={{  headerTitle: 'Reminders' }} />
+    options={{  headerShown: false }} />
 
     <Stack.Screen name='Themes' 
-    options={{ headerTitle: 'Themes' }} />
+    options={{ headerShown: false }} />
 
   </Stack>
   )

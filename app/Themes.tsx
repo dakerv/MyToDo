@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Image, Text, View, TouchableOpacity } from 'react-native';
 import Sidebar, { Pages } from '@/components/sidebar';
 import { useState } from "react";
 
@@ -13,7 +13,14 @@ export default function Themes () {
     }
     return (
         <View style = {styles.container}>
-            <Text style = {styles.introductoryText}> Hello, welcome to the Themes page </Text>
+            <View style={styles.drawerRevealIconContainer}>
+                            <TouchableOpacity onPress={() => setIsSidebarOpen (!isSideBarOpen)}>
+                                <Image
+                                source={require('../assets/images/Button.png')}
+                                style={ styles.drawerRevealIcon }
+                                />
+                            </TouchableOpacity>
+                        </View>
         <Sidebar 
             isOpen={isSideBarOpen} 
             onSelectPage={handleActivePage} 
@@ -25,11 +32,22 @@ export default function Themes () {
 
 const styles = StyleSheet.create ({
     container: {
-        flex: 1,
-        padding: 50
+            flex: 1,
+    paddingTop: 60,
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+    backgroundColor: 'black',
+    zIndex: 1
     },
     introductoryText: {
         fontSize: 50,
         color: 'white'
-    }
+    },
+     drawerRevealIconContainer: {
+    width: '100%',
+    padding: 20
+  },
+    drawerRevealIcon: {
+    alignSelf: 'flex-start',
+  },
 })

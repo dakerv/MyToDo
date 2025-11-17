@@ -38,8 +38,12 @@ export default function Reminders () {
 
 const styles = StyleSheet.create ({
     container: {
-       flex: 1,
-       padding: 20
+          flex: 1,
+    paddingTop: 60,
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+    backgroundColor: 'black',
+    zIndex: 1
     },
     button: {
         fontSize: 15,
