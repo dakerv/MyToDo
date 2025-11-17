@@ -28,8 +28,11 @@ export default function Tasks() {
               style={ styles.drawerRevealIcon }
             />
             </TouchableOpacity>
-          
           </View>
+
+          <Text style = {{ color: 'white', fontSize: 24}}>
+            Tasks Page
+          </Text>
           
             
         </View>

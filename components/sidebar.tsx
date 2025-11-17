@@ -52,7 +52,14 @@ export default function Sidebar ({onSelectPage, isOpen, selectedPage }: SidebarP
 const styles = StyleSheet.create ({
     sidebarMainContainer: {
         flex: 1, 
-        padding: 20
+        padding: 20,
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        bottom: 0,
+        width: 250,
+        backgroundColor: '#f0f0f0',
+        zIndex: 1000,
     },
     myToDoAndExitButtonContainer: {
         width: '100%',
