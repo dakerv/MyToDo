@@ -47,8 +47,11 @@ export default function Sidebar ({onSelectPage, isOpen, selectedPage }: SidebarP
                         styles.sidebarItem,
                         selectedPage === item.title && styles.selectedSidebarItem
                     ]}>
-
-                        <Text>{item.title}</Text>
+                        
+                        <View style={styles.imageAndTextStyles}>
+                        <Image source={item.image}/>
+                        <Text style= {styles.textStyleOnly}>{item.title}</Text>
+                        </View>
                     </TouchableOpacity>
                 )}
                 />
@@ -95,4 +98,13 @@ const styles = StyleSheet.create ({
     exitButtonStyles: {
         bottom: 7,
     },
+    imageAndTextStyles: {
+        flexDirection: 'row',
+        justifyContent: 'flex-start'
+    },
+    textStyleOnly: {
+        color: 'white',
+        fontSize: 18,
+        marginLeft: 15
+    }
 })
