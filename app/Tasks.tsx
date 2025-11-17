@@ -1,4 +1,3 @@
-import { Link } from 'expo-router';
 import React, { useState} from "react";
 import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import Sidebar from '@/components/sidebar';
