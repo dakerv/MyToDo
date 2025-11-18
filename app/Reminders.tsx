@@ -1,7 +1,7 @@
 
-import React, { useState } from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import Sidebar, { Pages } from '@/components/sidebar';
+import React, { useState } from "react";
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 
 export default function Reminders () {
