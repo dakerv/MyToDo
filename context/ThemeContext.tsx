@@ -29,3 +29,15 @@ const themes : Record <ThemeName, Theme> = {
         accent: 'gray',
     }
 }
+
+type ThemeContextType = {
+    themeName: ThemeName;
+    theme: Theme;
+    setThemeName: (name: ThemeName) => void;
+}
+
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+    const [themeName, setThemeName] = useState<ThemeName>('Petal')
+}
