@@ -1,8 +1,10 @@
 import Sidebar, { Pages } from '@/components/sidebar';
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useTheme } from '@/context/ThemeContext';
 
 export default function Tasks() {
+  const { theme } = useTheme();
   const [isSideBarOpen, setIsSidebarOpen] = useState(false);
   const [activePage, setActivePage] = useState<Pages>('Tasks');
 
@@ -48,7 +50,7 @@ const styles = StyleSheet.create( {
   button: {
     textDecorationLine: 'underline',
     color: 'blue',
-    fontSize: 20
+    fontSize: 20,
   },
   drawerRevealIconContainer: {
     width: '100%',
