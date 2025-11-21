@@ -2,6 +2,7 @@ import Sidebar, { Pages } from '@/components/sidebar';
 import { useTheme } from '@/context/ThemeContext';
 import React, { useState } from "react";
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { themes, ThemeName } from '@/context/ThemeContext';
 
 export default function Themes () {
     const { themeName, setThemeName, theme} = useTheme();
@@ -43,9 +44,19 @@ export default function Themes () {
                     padding: 20,
                     borderRadius: 10,
                     marginBottom: 15,
+                    borderWidth: themeName === item.name ? 2 : 0,
+                    borderColor: themeName === item.name ? theme.primaryColor : 'transparent',
                 }}
             >
-            
+                <Text style = {{ color: themes[item.name].primaryColor, fontWeight: 'bold'}}>
+                    {item.name}
+                </Text>
+
+                <Text style = {{ color: themes[item.name].primaryColor }}>
+                {item.description}
+                </Text>
+
+                <Image source={item.image} style={{width: 50, height: 50, marginTop: 10}} />
             </TouchableOpacity>
             )}
             />

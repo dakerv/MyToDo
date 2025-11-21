@@ -1,6 +1,6 @@
 import { useContext, useState, createContext } from "react";
 
-type ThemeName = 'Petal' | 'Mint' | 'Neutral';
+export type ThemeName = 'Petal' | 'Mint' | 'Neutral';
 
 type Theme = {
     name: string
@@ -16,7 +16,7 @@ type Theme = {
     glowColor: string;
 }
 
-const themes : Record <ThemeName, Theme> = {
+export const themes : Record <ThemeName, Theme> = {
     Petal: {
     name: 'Petal',
     gradient: 'from-gray-900 via-pink-900 to-black',
