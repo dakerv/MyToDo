@@ -2,8 +2,10 @@ import React from "react";
 import { StyleSheet, Image, Text, View, TouchableOpacity } from 'react-native';
 import Sidebar, { Pages } from '@/components/sidebar';
 import { useState } from "react";
+import { useTheme } from '@/context/ThemeContext';
 
 export default function Themes () {
+    const { themeName, setThemeName, theme} = useTheme();
     const [isSideBarOpen, setIsSidebarOpen] = useState(false);
     const [activePage, setActivePage] = useState<Pages>('Themes')
 
