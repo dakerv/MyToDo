@@ -35,12 +35,25 @@ export default function Themes () {
             <FlatList
             data={themeOptions}
             keyExtractor={(item) => item.id}
-            renderItem={}
+            renderItem={({item}) => (
+                <TouchableOpacity
+                onPress={() => setThemeName(item.name as ThemeName)}
+                style={{
+                    backgroundColor: themes[item.name].bg,
+                    padding: 20,
+                    borderRadius: 10,
+                    marginBottom: 15,
+                }}
+            >
+            
+            </TouchableOpacity>
+            )}
             />
         <Sidebar 
             isOpen={isSideBarOpen} 
             onSelectPage={handleActivePage} 
             selectedPage={activePage}
+            onClose={() => setIsSidebarOpen(false)}
         />
         </View>
     )
