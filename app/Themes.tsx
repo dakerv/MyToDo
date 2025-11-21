@@ -1,8 +1,7 @@
-import React from "react";
-import { StyleSheet, Image, Text, View, TouchableOpacity } from 'react-native';
 import Sidebar, { Pages } from '@/components/sidebar';
-import { useState } from "react";
 import { useTheme } from '@/context/ThemeContext';
+import React, { useState } from "react";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function Themes () {
     const { themeName, setThemeName, theme} = useTheme();
@@ -16,13 +15,16 @@ export default function Themes () {
     return (
         <View style = {styles.container}>
             <View style={styles.drawerRevealIconContainer}>
-                            <TouchableOpacity onPress={() => setIsSidebarOpen (!isSideBarOpen)}>
-                                <Image
-                                source={require('../assets/images/Button.png')}
-                                style={ styles.drawerRevealIcon }
-                                />
-                            </TouchableOpacity>
-                        </View>
+                <TouchableOpacity onPress={() => setIsSidebarOpen (!isSideBarOpen)}>
+                    <Image
+                    source={require('../assets/images/Button.png')}
+                    style={ styles.drawerRevealIcon }/>
+                </TouchableOpacity>
+            </View>
+
+            <View style={styles.headerContainer}> 
+                <Text style ={styles.headerText}> Theme </Text>
+            </View>
         <Sidebar 
             isOpen={isSideBarOpen} 
             onSelectPage={handleActivePage} 
@@ -47,9 +49,17 @@ const styles = StyleSheet.create ({
     },
      drawerRevealIconContainer: {
     width: '100%',
-    padding: 20
+    height: 72,
   },
     drawerRevealIcon: {
     alignSelf: 'flex-start',
   },
+  headerText: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  headerContainer: {
+    marginTop: 10,
+  }
 })

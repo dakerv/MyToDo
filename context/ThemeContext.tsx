@@ -3,6 +3,7 @@ import { useContext, useState, createContext } from "react";
 type ThemeName = 'Petal' | 'Mint' | 'Neutral';
 
 type Theme = {
+    name: string
     gradient: string;
     primaryColor: string;
     primaryLight: string;
@@ -17,6 +18,7 @@ type Theme = {
 
 const themes : Record <ThemeName, Theme> = {
     Petal: {
+    name: 'Petal',
     gradient: 'from-gray-900 via-pink-900 to-black',
     primaryColor: '#ec4899',
     primaryLight: '#f9a8d4',
@@ -30,6 +32,7 @@ const themes : Record <ThemeName, Theme> = {
   },
     
     Mint: {
+    name: 'Mint',
     gradient: 'from-gray-900 via-emerald-900 to-black',
     primaryColor: '#10b981',
     primaryLight: '#6ee7b7',
@@ -43,6 +46,7 @@ const themes : Record <ThemeName, Theme> = {
     },
 
     Neutral: {
+    name: 'Neutral',
     gradient: 'from-gray-900 via-gray-800 to-black',
     primaryColor: '#6b7280',
     primaryLight: '#d1d5db',
