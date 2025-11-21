@@ -28,7 +28,7 @@ const themes : Record <ThemeName, Theme> = {
     accent: 'rgba(236, 72, 153, 0.2)',
     glowColor: '#ec4899',
   },
-    },
+    
     Mint: {
     gradient: 'from-gray-900 via-emerald-900 to-black',
     primaryColor: '#10b981',
@@ -41,8 +41,8 @@ const themes : Record <ThemeName, Theme> = {
     accent: 'rgba(16, 185, 129, 0.2)',
     glowColor: '#10b981',
     },
+
     Neutral: {
-    name: 'Neutral',
     gradient: 'from-gray-900 via-gray-800 to-black',
     primaryColor: '#6b7280',
     primaryLight: '#d1d5db',
