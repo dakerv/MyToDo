@@ -14,7 +14,7 @@ export default function Themes () {
         setActivePage(page);
     }
 
-    const themeOptions: {id: string; image: any; name: string; description: string; }[] = [
+    const themeOptions: {id: string; image: any; name: ThemeName; description: string; }[] = [
         { id: '1', image: require ('../assets/images/Petal Icon.png'), name: 'Petal', description: 'Soft pink and black elegance'},
         { id: '2', image: require ('../assets/images/Mint Icon.png'), name: 'Mint', description: 'Fresh green and black harmony'},
         { id: '3', image: require ('../assets/images/Neutral Icon.png'), name: 'Neutral', description: 'Professional black and white'},
@@ -48,15 +48,20 @@ export default function Themes () {
                     borderColor: themeName === item.name ? theme.primaryColor : 'transparent',
                 }}
             >
-                <Text style = {{ color: themes[item.name].primaryColor, fontWeight: 'bold'}}>
-                    {item.name}
-                </Text>
+                <View style={styles.themeOptionContainer}>
+                    <Image source={item.image} style={{width: 50, height: 50, marginTop: 10}} />
 
-                <Text style = {{ color: themes[item.name].primaryColor }}>
-                {item.description}
-                </Text>
+                    <View style={styles.themeOptionTextContainerOnly}>
+                        <Text style = {{ color: themes[item.name].primaryColor, fontWeight: 'bold', fontSize: 18 }}>
+                        {item.name}
+                        </Text>
 
-                <Image source={item.image} style={{width: 50, height: 50, marginTop: 10}} />
+                        <Text style = {{ color: themes[item.name].primaryColor, fontSize: 14 }}>
+                        {item.description}
+                        </Text>
+                    </View>
+                </View>
+
             </TouchableOpacity>
             )}
             />
@@ -72,30 +77,38 @@ export default function Themes () {
 
 const styles = StyleSheet.create ({
     container: {
-            flex: 1,
-    paddingTop: 60,
-    paddingHorizontal: 20,
-    paddingVertical: 20,
-    backgroundColor: 'black',
-    zIndex: 1
+        flex: 1,
+        paddingTop: 60,
+        paddingHorizontal: 20,
+        paddingVertical: 20,
+        backgroundColor: 'black',
+        zIndex: 1
     },
     introductoryText: {
         fontSize: 50,
         color: 'white'
     },
-     drawerRevealIconContainer: {
-    width: '100%',
-    height: 72,
+    drawerRevealIconContainer: {
+        width: '100%',
+        height: 72,
   },
     drawerRevealIcon: {
-    alignSelf: 'flex-start',
+        alignSelf: 'flex-start',
   },
-  headerText: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    color: 'white',
+    headerText: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: 'white',
   },
-  headerContainer: {
-    marginTop: 10,
+    headerContainer: {
+        marginTop: 10,
+  },
+    themeOptionContainer: {
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+  },
+  themeOptionTextContainerOnly: {
+    left: '20%',
+    bottom: '40%'
   }
 })
