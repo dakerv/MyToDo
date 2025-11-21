@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
 import { router } from "expo-router";
+import React, { useEffect, useRef } from "react";
 import { Animated, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export type Pages = 'Tasks' | 'Reminders' | 'Themes';
@@ -9,6 +9,7 @@ type SidebarProps = {
     onSelectPage: (page: Pages) => void;
     isOpen: boolean;
     selectedPage: Pages;
+    onClose: () => void;
 }
 
 const sidebarItems: { id: string; title: Pages; link: PageLinks; image: any }[] = [
@@ -17,7 +18,7 @@ const sidebarItems: { id: string; title: Pages; link: PageLinks; image: any }[] 
     { id: '3', title: 'Themes', link: '/Themes', image: require('../assets/images/themesPalette.png') },
 ];
 
-export default function Sidebar ({onSelectPage, isOpen, selectedPage }: SidebarProps) {
+export default function Sidebar ({onSelectPage, isOpen, selectedPage, onClose }: SidebarProps) {
 
     const slideAnim = useRef(new Animated.Value(-250)).current;
 
@@ -36,8 +37,11 @@ export default function Sidebar ({onSelectPage, isOpen, selectedPage }: SidebarP
 
                 <View style = {styles.myToDoAndExitButtonContainer}>
                     <Text style = {styles.myAppTextStyles}> My App </Text>
-                    <Image source = { require ('../assets/images/exitButton.png')}
-                    style = {styles.exitButtonStyles} />
+
+                    <TouchableOpacity onPress={onClose}>
+                    <Image source = {require ('../assets/images/exitButton.png')}
+                    style = {styles.exitButtonStyles}/>
+                    </TouchableOpacity>
                 </View>
 
                 <View style= {styles.flatListItems}>

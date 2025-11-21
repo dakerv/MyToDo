@@ -1,7 +1,7 @@
 import Sidebar, { Pages } from '@/components/sidebar';
 import { useTheme } from '@/context/ThemeContext';
 import React, { useState } from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function Themes () {
     const { themeName, setThemeName, theme} = useTheme();
@@ -12,6 +12,12 @@ export default function Themes () {
         setIsSidebarOpen(false);
         setActivePage(page);
     }
+
+    const themeOptions: {id: string; image: any; name: string; description: string; }[] = [
+        { id: '1', image: require ('../assets/images/Petal Icon.png'), name: 'Petal', description: 'Soft pink and black elegance'},
+        { id: '2', image: require ('../assets/images/Mint Icon.png'), name: 'Mint', description: 'Fresh green and black harmony'},
+        { id: '3', image: require ('../assets/images/Neutral Icon.png'), name: 'Neutral', description: 'Professional black and white'},
+    ]
     return (
         <View style = {styles.container}>
             <View style={styles.drawerRevealIconContainer}>
@@ -25,6 +31,12 @@ export default function Themes () {
             <View style={styles.headerContainer}> 
                 <Text style ={styles.headerText}> Theme </Text>
             </View>
+
+            <FlatList
+            data={themeOptions}
+            keyExtractor={(item) => item.id}
+            renderItem={}
+            />
         <Sidebar 
             isOpen={isSideBarOpen} 
             onSelectPage={handleActivePage} 

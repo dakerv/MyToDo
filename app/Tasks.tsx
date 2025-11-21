@@ -33,6 +33,7 @@ export default function Tasks() {
             isOpen={isSideBarOpen} 
             onSelectPage={handleActivePage} 
             selectedPage={activePage}
+            onClose = {() => setIsSidebarOpen(false)}
             />
         </View>
     )
