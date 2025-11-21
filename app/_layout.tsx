@@ -1,7 +1,9 @@
 import { Stack } from "expo-router";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 export default function TabsLayout() {
   return (
+  <ThemeProvider>
   <Stack>
     <Stack.Screen 
     name="Tasks"
@@ -16,6 +18,7 @@ export default function TabsLayout() {
     options={{ headerShown: false }} />
 
   </Stack>
+  </ThemeProvider>
   )
 }
 
