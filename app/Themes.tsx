@@ -1,8 +1,7 @@
 import Sidebar, { Pages } from '@/components/sidebar';
-import { useTheme } from '@/context/ThemeContext';
+import { ThemeName, themes, useTheme } from '@/context/ThemeContext';
 import React, { useState } from "react";
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { themes, ThemeName } from '@/context/ThemeContext';
 
 export default function Themes () {
     const { themeName, setThemeName, theme} = useTheme();
@@ -33,6 +32,10 @@ export default function Themes () {
                 <Text style ={styles.headerText}> Theme </Text>
             </View>
 
+
+            <View style = {styles.containerForFlatlistAndPreferredThemeText}>
+            <Text style = {styles.yourPreferredTheme}> Choose your preferred theme colour please. </Text>
+
             <FlatList
             data={themeOptions}
             keyExtractor={(item) => item.id}
@@ -48,6 +51,7 @@ export default function Themes () {
                     borderColor: themeName === item.name ? theme.primaryColor : 'transparent',
                 }}
             >
+
                 <View style={styles.themeOptionContainer}>
                     <Image source={item.image} style={{width: 50, height: 50, marginTop: 10}} />
 
@@ -63,8 +67,10 @@ export default function Themes () {
                 </View>
 
             </TouchableOpacity>
+            
             )}
             />
+            </View>
         <Sidebar 
             isOpen={isSideBarOpen} 
             onSelectPage={handleActivePage} 
@@ -110,5 +116,14 @@ const styles = StyleSheet.create ({
   themeOptionTextContainerOnly: {
     left: '20%',
     bottom: '40%'
+  },
+  yourPreferredTheme: {
+    color: 'white',
+    fontSize: 16,
+    marginTop: 40,
+    marginBottom: 25,
+  },
+  containerForFlatlistAndPreferredThemeText: {
+    backgroundColor: 'orange',
   }
 })
