@@ -19,7 +19,11 @@ export default function Themes () {
         { id: '3', image: require ('../assets/images/Neutral Icon.png'), name: 'Neutral', description: 'Professional black and white'},
     ]
     return (
-        <View style = {styles.container}>
+        <View style = {[styles.container, {backgroundColor: theme.bg}]}>
+
+          <View style = {[ styles.circleGlow, { borderColor: theme.primaryColor}]}> </View>
+          <View style = {[ styles.bottomWave, {backgroundColor: theme.primaryColor}]}> </View>
+
             <View style={styles.drawerRevealIconContainer}>
                 <TouchableOpacity onPress={() => setIsSidebarOpen (!isSideBarOpen)}>
                     <Image
@@ -48,6 +52,7 @@ export default function Themes () {
                     paddingBottom: 25,
                     paddingTop: 15,
                     borderRadius: 10,
+                    marginBottom: 15,
                     borderWidth: themeName === item.name ? 2 : 0,
                     borderColor: themeName === item.name ? theme.primaryColor : 'transparent',
                 }}
