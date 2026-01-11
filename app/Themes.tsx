@@ -19,10 +19,11 @@ export default function Themes () {
         { id: '3', image: require ('../assets/images/Neutral Icon.png'), name: 'Neutral', description: 'Professional black and white'},
     ]
     return (
-        <View style = {[styles.container, {backgroundColor: theme.bg}]}>
+        <View style = {[styles.container, {backgroundColor: theme.primaryDark}]}>
 
           <View style = {[ styles.circleGlow, { borderColor: theme.primaryColor}]}> </View>
           <View style = {[ styles.bottomWave, {backgroundColor: theme.primaryColor}]}> </View>
+          <View style = {[ styles.squareGlow, { borderColor: theme.primaryColor}]}> </View>
 
             <View style={styles.drawerRevealIconContainer}>
                 <TouchableOpacity onPress={() => setIsSidebarOpen (!isSideBarOpen)}>
@@ -38,7 +39,7 @@ export default function Themes () {
 
 
             <View style = {styles.containerForFlatlistAndPreferredThemeText}>
-            <Text style = {styles.yourPreferredTheme}> Choose your preferred theme colour </Text>
+            <Text style = {styles.yourPreferredTheme}> Choose your preferred colour theme </Text>
 
             <FlatList
             data={themeOptions}
@@ -99,13 +100,22 @@ const styles = StyleSheet.create ({
     circleGlow: {
         position: 'absolute',
         top: 140,
-        right: -40,
-        width: 180,
-        height: 180,
+        right: 60,
+        width: 140,
+        height: 140,
         borderRadius: 90,
-        borderWidth: 4,
+        borderWidth: 4.5,
         opacity: 0.35
     },
+    squareGlow: {
+        position: 'absolute',
+        top: 370,
+        right: 200,
+        width: 170,
+        height: 170,
+        borderWidth: 4,
+        opacity: 0.35
+},
     bottomWave: {
         position: 'absolute',
         bottom: -40,
