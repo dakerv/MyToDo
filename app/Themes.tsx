@@ -45,10 +45,9 @@ export default function Themes () {
                 style={{
                     backgroundColor: themes[item.name].bg,
                     paddingLeft: 20,
-                    paddingTop: 10,
-                    paddingBottom: 10,
+                    paddingBottom: 25,
+                    paddingTop: 15,
                     borderRadius: 10,
-                    marginBottom: 15,
                     borderWidth: themeName === item.name ? 2 : 0,
                     borderColor: themeName === item.name ? theme.primaryColor : 'transparent',
                 }}
@@ -112,12 +111,12 @@ const styles = StyleSheet.create ({
         marginTop: 10,
   },
     themeOptionContainer: {
-        flexDirection: 'column',
-        alignItems: 'flex-start',
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 10
   },
   themeOptionTextContainerOnly: {
-    left: '20%',
-    bottom: '40%'
+        flex: 1
   },
   yourPreferredTheme: {
     color: 'white',
