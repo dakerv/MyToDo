@@ -96,6 +96,26 @@ const styles = StyleSheet.create ({
         backgroundColor: 'black',
         zIndex: 1
     },
+    circleGlow: {
+        position: 'absolute',
+        top: 140,
+        right: -40,
+        width: 180,
+        height: 180,
+        borderRadius: 90,
+        borderWidth: 4,
+        opacity: 0.35
+    },
+    bottomWave: {
+        position: 'absolute',
+        bottom: -40,
+        left: -20,
+        right: -20,
+        height: 120,
+        borderTopLeftRadius: 120,
+        borderTopRightRadius: 120,
+        opacity: 0.85
+    },
     introductoryText: {
         fontSize: 50,
         color: 'white'
