@@ -34,7 +34,7 @@ export default function Themes () {
 
 
             <View style = {styles.containerForFlatlistAndPreferredThemeText}>
-            <Text style = {styles.yourPreferredTheme}> Choose your preferred theme colour please. </Text>
+            <Text style = {styles.yourPreferredTheme}> Choose your preferred theme colour </Text>
 
             <FlatList
             data={themeOptions}
@@ -44,7 +44,9 @@ export default function Themes () {
                 onPress={() => setThemeName(item.name as ThemeName)}
                 style={{
                     backgroundColor: themes[item.name].bg,
-                    padding: 20,
+                    paddingLeft: 20,
+                    paddingTop: 10,
+                    paddingBottom: 10,
                     borderRadius: 10,
                     marginBottom: 15,
                     borderWidth: themeName === item.name ? 2 : 0,
@@ -53,7 +55,7 @@ export default function Themes () {
             >
 
                 <View style={styles.themeOptionContainer}>
-                    <Image source={item.image} style={{width: 50, height: 50, marginTop: 10}} />
+                    <Image source={item.image} style={{width: 70, height: 70, marginTop: 10}} />
 
                     <View style={styles.themeOptionTextContainerOnly}>
                         <Text style = {{ color: themes[item.name].primaryColor, fontWeight: 'bold', fontSize: 18 }}>
@@ -124,6 +126,6 @@ const styles = StyleSheet.create ({
     marginBottom: 25,
   },
   containerForFlatlistAndPreferredThemeText: {
-    backgroundColor: 'orange',
+ 
   }
 })
