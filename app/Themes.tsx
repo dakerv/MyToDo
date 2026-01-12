@@ -29,13 +29,14 @@ export default function Themes () {
                 </TouchableOpacity>
             </View>
 
-          <View style = {[ styles.circleGlow, { borderColor: theme.primaryColor}]}> </View>
-          <View style = {[ styles.squareGlow, { borderColor: theme.primaryColor}]}> </View>
+          <View style = {[ styles.circleGlow, { borderColor: theme.glowColor}]}> </View>
+          <View style = {[ styles.squareGlow, { borderColor: theme.glowColor}]}> </View>
+          <View style = {[ styles.smallerSquare, {borderColor: theme.glowColor, backgroundColor: theme.glowColor }]}></View>
 
 
 
             <View style={styles.headerContainer}> 
-                <Text style ={styles.headerText}> Theme </Text>
+                <Text style ={styles.headerText}> Themes </Text>
             </View>
 
 
@@ -108,7 +109,6 @@ const styles = StyleSheet.create ({
         flex: 1,
         paddingTop: 60,
         paddingHorizontal: 20,
-        paddingVertical: 20,
         backgroundColor: 'black',
         zIndex: 1
     },
@@ -124,26 +124,34 @@ const styles = StyleSheet.create ({
     },
     squareGlow: {
         position: 'absolute',
-        top: 370,
+        top: 450,
         right: 200,
         width: 170,
         height: 170,
         borderWidth: 4,
         opacity: 0.35
 },
+    smallerSquare: {
+        position: 'absolute',
+        top: 430,
+        left: 250,
+        width: 90,
+        height: 90,
+        opacity: 0.4,
+        borderWidth: 4,
+    },
     introductoryText: {
         fontSize: 50,
         color: 'white'
     },
     drawerRevealIconContainer: {
+        position: 'absolute',
         width: 600,
-        left: -25,
+        left: 0,
         height: 90,
-        bottom: 60,
         backgroundColor: 'rgba(0, 0, 0, 0.4)',
-        borderRadius: 8,
         paddingTop: 45,
-        paddingLeft: 17
+        padding: 18
   },
     drawerRevealIcon: {
         alignSelf: 'flex-start',
@@ -154,8 +162,8 @@ const styles = StyleSheet.create ({
         color: 'white',
   },
     headerContainer: {
-       
-        marginBottom: 50,
+        marginTop: 65,
+        marginBottom: 30,
   },
     themeOptionContainer: {
         flexDirection: 'row',
