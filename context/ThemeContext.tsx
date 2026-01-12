@@ -4,7 +4,7 @@ export type ThemeName = 'Petal' | 'Mint' | 'Neutral';
 
 type Theme = {
     name: string
-    gradient: string [];
+    gradient: [string, string, ...string[]];
     primaryColor: string;
     primaryLight: string;
     primaryDark: string;

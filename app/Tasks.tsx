@@ -1,7 +1,7 @@
 import Sidebar, { Pages } from '@/components/sidebar';
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { useTheme } from '@/context/ThemeContext';
+import { ThemeName, themes, useTheme } from '@/context/ThemeContext';
 import { LinearGradient } from 'expo-linear-gradient';
 import Svg, { Line, Path } from 'react-native-svg';
 
@@ -22,18 +22,26 @@ export default function Tasks() {
         end={{x:0, y:0}}
         style={styles.container}>
 
-          <View style={styles.drawerRevealIconContainer}>
-            <TouchableOpacity onPress={() => setIsSidebarOpen (!isSideBarOpen)}>
-            <Image
+            <View style={styles.drawerRevealIconContainer}>
+              <TouchableOpacity onPress={() => setIsSidebarOpen (!isSideBarOpen)}>
+              <Image
               source={require('../assets/images/Button.png')}
               style={ styles.drawerRevealIcon }
-            />
-            </TouchableOpacity>
-          </View>
+               />
+              </TouchableOpacity>
+            </View>
 
              <View style = {[ styles.circleGlow, { borderColor: theme.glowColor}]}> </View>
              <View style = {[ styles.squareGlow, { borderColor: theme.glowColor}]}> </View>
-             <View style = {[ styles.smallerSquare, {borderColor: theme.glowColor, backgroundColor: theme.glowColor }]}></View>
+             <View style = {[ styles.smallerSquare, {borderColor: theme.glowColor, backgroundColor: theme.glowColor }]}> </View>
+
+              <View style={styles.headerContainer}> 
+                <Text style ={styles.headerText}> Tasks </Text>
+              </View>
+
+                <View style = {styles.uncompletedAndCompletedTasksContainer}>
+
+                </View>
 
         <View style={styles.waveWrapper}>
           <Svg
@@ -106,6 +114,22 @@ const styles = StyleSheet.create( {
         opacity: 0.4,
         borderWidth: 4,
     },
+     headerText: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: 'white',
+  },
+    headerContainer: {
+        marginTop: 65,
+        marginBottom: 30,
+  },
+  uncompletedAndCompletedTasksContainer: {
+        height: 550,
+        width: '100%',
+        backgroundColor: 'rgba(0, 0, 0, 0.4)',
+        borderRadius: 8,
+        padding: 20,
+  },
  waveWrapper: {
   position: 'absolute',
   bottom: -15,
