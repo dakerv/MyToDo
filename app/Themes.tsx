@@ -21,10 +21,6 @@ export default function Themes () {
     ]
     return (
         <View style = {[styles.container, {backgroundColor: theme.primaryDark}]}>
-
-          <View style = {[ styles.circleGlow, { borderColor: theme.primaryColor}]}> </View>
-          <View style = {[ styles.squareGlow, { borderColor: theme.primaryColor}]}> </View>
-
             <View style={styles.drawerRevealIconContainer}>
                 <TouchableOpacity onPress={() => setIsSidebarOpen (!isSideBarOpen)}>
                     <Image
@@ -32,6 +28,11 @@ export default function Themes () {
                     style={ styles.drawerRevealIcon }/>
                 </TouchableOpacity>
             </View>
+
+          <View style = {[ styles.circleGlow, { borderColor: theme.primaryColor}]}> </View>
+          <View style = {[ styles.squareGlow, { borderColor: theme.primaryColor}]}> </View>
+
+
 
             <View style={styles.headerContainer}> 
                 <Text style ={styles.headerText}> Theme </Text>
@@ -75,9 +76,10 @@ export default function Themes () {
 
             </TouchableOpacity>
             
-            )}  />
-       
-       <View style={styles.waveWrapper}>
+            )}  />  
+            </View>
+
+     <View style={styles.waveWrapper}>
         <Svg
          width="100%"
          height={120}
@@ -89,8 +91,6 @@ export default function Themes () {
          fill={theme.accent} />
         </Svg>
         </View>
-            
-    </View>
     
         <Sidebar 
             isOpen={isSideBarOpen} 
@@ -136,8 +136,14 @@ const styles = StyleSheet.create ({
         color: 'white'
     },
     drawerRevealIconContainer: {
-        width: '100%',
-        height: 72,
+        width: 600,
+        left: -25,
+        height: 90,
+        bottom: 60,
+        backgroundColor: 'rgba(0, 0, 0, 0.4)',
+        borderRadius: 8,
+        paddingTop: 45,
+        paddingLeft: 17
   },
     drawerRevealIcon: {
         alignSelf: 'flex-start',
@@ -148,7 +154,8 @@ const styles = StyleSheet.create ({
         color: 'white',
   },
     headerContainer: {
-        marginTop: 10,
+       
+        marginBottom: 50,
   },
     themeOptionContainer: {
         flexDirection: 'row',
@@ -165,16 +172,17 @@ const styles = StyleSheet.create ({
     marginBottom: 25,
   },
   containerForFlatlistAndPreferredThemeText: {
-    flex: 1,
-    height: '100%',
-    width: '100%'
+    height: 550,
+    width: '100%',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    borderRadius: 8,
+    padding: 20,
   },
   waveWrapper: {
   position: 'absolute',
   bottom: -15,
-  width: '100%',
-  left: 0,
-  right: 0,
+  left: -30,
+  width: 500,
   overflow: 'hidden',
   height: 120,
 },
