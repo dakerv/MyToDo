@@ -2,6 +2,7 @@ import Sidebar, { Pages } from '@/components/sidebar';
 import { ThemeName, themes, useTheme } from '@/context/ThemeContext';
 import React, { useState } from "react";
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import Svg, { Path } from 'react-native-svg';
 
 export default function Themes () {
     const { themeName, setThemeName, theme} = useTheme();
@@ -22,7 +23,6 @@ export default function Themes () {
         <View style = {[styles.container, {backgroundColor: theme.primaryDark}]}>
 
           <View style = {[ styles.circleGlow, { borderColor: theme.primaryColor}]}> </View>
-          <View style = {[ styles.bottomWave, {backgroundColor: theme.primaryColor}]}> </View>
           <View style = {[ styles.squareGlow, { borderColor: theme.primaryColor}]}> </View>
 
             <View style={styles.drawerRevealIconContainer}>
@@ -75,15 +75,30 @@ export default function Themes () {
 
             </TouchableOpacity>
             
-            )}
-            />
-            </View>
+            )}  />
+       
+       <View style={styles.waveWrapper}>
+        <Svg
+         width="100%"
+         height={120}
+         viewBox="0 0 1440 150"
+         preserveAspectRatio="none">
+
+        <Path
+         d="M0,75 L80,55 Q120,35,160,55 T320,55 T480,55 T640,55 T800,55 T960,55 T1120,55 T1280,55 T1440,75 V150 H0 Z"
+         fill={theme.accent} />
+        </Svg>
+        </View>
+            
+    </View>
+    
         <Sidebar 
             isOpen={isSideBarOpen} 
             onSelectPage={handleActivePage} 
             selectedPage={activePage}
             onClose={() => setIsSidebarOpen(false)}
         />
+
         </View>
     )
 }
@@ -161,5 +176,13 @@ const styles = StyleSheet.create ({
   },
   containerForFlatlistAndPreferredThemeText: {
  
-  }
+  },
+  waveWrapper: {
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  right: 0,
+  overflow: 'hidden',
+  height: 120,
+},
 })
