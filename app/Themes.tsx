@@ -1,5 +1,6 @@
 import Sidebar, { Pages } from '@/components/sidebar';
 import { ThemeName, themes, useTheme } from '@/context/ThemeContext';
+import { LinearGradient } from 'expo-linear-gradient';
 import React, { useState } from "react";
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
@@ -20,7 +21,11 @@ export default function Themes () {
         { id: '3', image: require ('../assets/images/Neutral Icon.png'), name: 'Neutral', description: 'Professional black and white'},
     ]
     return (
-        <View style = {[styles.container, {backgroundColor: theme.primaryDark}]}>
+        <LinearGradient colors={theme.gradient}
+        start={{x:0, y:0}}
+        end= {{x:1, y:1}}
+        style={styles.container}>
+            
             <View style={styles.drawerRevealIconContainer}>
                 <TouchableOpacity onPress={() => setIsSidebarOpen (!isSideBarOpen)}>
                     <Image
@@ -100,7 +105,7 @@ export default function Themes () {
             onClose={() => setIsSidebarOpen(false)}
         />
 
-        </View>
+        </LinearGradient>
     )
 }
 
@@ -109,7 +114,6 @@ const styles = StyleSheet.create ({
         flex: 1,
         paddingTop: 60,
         paddingHorizontal: 20,
-        backgroundColor: 'black',
         zIndex: 1
     },
     circleGlow: {
@@ -149,7 +153,7 @@ const styles = StyleSheet.create ({
         width: 600,
         left: 0,
         height: 90,
-        backgroundColor: 'rgba(0, 0, 0, 0.4)',
+        backgroundColor: 'rgba(0, 0, 0, 0.6)',
         paddingTop: 45,
         padding: 18
   },
