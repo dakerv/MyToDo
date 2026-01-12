@@ -2,6 +2,8 @@ import Sidebar, { Pages } from '@/components/sidebar';
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useTheme } from '@/context/ThemeContext';
+import { LinearGradient } from 'expo-linear-gradient';
+import Svg, { Line, Path } from 'react-native-svg';
 
 export default function Tasks() {
   const { theme } = useTheme();
@@ -14,7 +16,11 @@ export default function Tasks() {
   }
 
     return (
-        <View style={styles.container}>
+        
+        <LinearGradient colors={theme.gradient}
+        start={{x:0, y:0}}
+        end={{x:0, y:0}}
+        style={styles.container}>
 
           <View style={styles.drawerRevealIconContainer}>
             <TouchableOpacity onPress={() => setIsSidebarOpen (!isSideBarOpen)}>
@@ -25,17 +31,30 @@ export default function Tasks() {
             </TouchableOpacity>
           </View>
 
-          <View style = {styles.firstView}>
-            <Text style = {styles.hiButton}> Hi </Text>
+             <View style = {[ styles.circleGlow, { borderColor: theme.glowColor}]}> </View>
+             <View style = {[ styles.squareGlow, { borderColor: theme.glowColor}]}> </View>
+             <View style = {[ styles.smallerSquare, {borderColor: theme.glowColor, backgroundColor: theme.glowColor }]}></View>
+
+        <View style={styles.waveWrapper}>
+          <Svg
+            width="100%"
+            height={120}
+            viewBox="0 0 1440 150"
+            preserveAspectRatio="none">
+       
+            <Path
+              d="M0,75 L80,55 Q120,35,160,55 T320,55 T480,55 T640,55 T800,55 T960,55 T1120,55 T1280,55 T1440,75 V150 H0 Z"
+              fill={theme.accent} />
+          </Svg>
           </View>
-          
+
             <Sidebar 
             isOpen={isSideBarOpen} 
             onSelectPage={handleActivePage} 
             selectedPage={activePage}
             onClose = {() => setIsSidebarOpen(false)}
             />
-        </View>
+        </LinearGradient>
     )
 }
 
@@ -45,7 +64,6 @@ const styles = StyleSheet.create( {
     paddingTop: 60,
     paddingHorizontal: 20,
     paddingVertical: 20,
-    backgroundColor: 'black',
     zIndex: 1
   },
   button: {
@@ -60,15 +78,41 @@ const styles = StyleSheet.create( {
   drawerRevealIcon: {
     alignSelf: 'flex-start',
   },
-  hiButton: {
-    fontSize: 50,
-    color: 'white'
- },
- firstView: {
-    backgroundColor: 'grey',
-    height: 200, 
-    width: '100%',
-    marginTop: 50
+   circleGlow: {
+        position: 'absolute',
+        top: 140,
+        right: 60,
+        width: 140,
+        height: 140,
+        borderRadius: 90,
+        borderWidth: 4.5,
+        opacity: 0.35
+    },
+    squareGlow: {
+        position: 'absolute',
+        top: 450,
+        right: 200,
+        width: 170,
+        height: 170,
+        borderWidth: 4,
+        opacity: 0.35
+},
+    smallerSquare: {
+        position: 'absolute',
+        top: 430,
+        left: 250,
+        width: 90,
+        height: 90,
+        opacity: 0.4,
+        borderWidth: 4,
+    },
+ waveWrapper: {
+  position: 'absolute',
+  bottom: -15,
+  left: -30,
+  width: 500,
+  overflow: 'hidden',
+  height: 120,
 }
 }
 )
