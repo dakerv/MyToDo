@@ -131,16 +131,6 @@ const styles = StyleSheet.create ({
         borderWidth: 4,
         opacity: 0.35
 },
-    bottomWave: {
-        position: 'absolute',
-        bottom: -40,
-        left: -20,
-        right: -20,
-        height: 120,
-        borderTopLeftRadius: 120,
-        borderTopRightRadius: 120,
-        opacity: 0.85
-    },
     introductoryText: {
         fontSize: 50,
         color: 'white'
@@ -175,11 +165,14 @@ const styles = StyleSheet.create ({
     marginBottom: 25,
   },
   containerForFlatlistAndPreferredThemeText: {
- 
+    flex: 1,
+    height: '100%',
+    width: '100%'
   },
   waveWrapper: {
   position: 'absolute',
-  bottom: 0,
+  bottom: -15,
+  width: '100%',
   left: 0,
   right: 0,
   overflow: 'hidden',
