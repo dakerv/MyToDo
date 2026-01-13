@@ -1,9 +1,9 @@
 import Sidebar, { Pages } from '@/components/sidebar';
+import { useTheme } from '@/context/ThemeContext';
+import { LinearGradient } from 'expo-linear-gradient';
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { ThemeName, themes, useTheme } from '@/context/ThemeContext';
-import { LinearGradient } from 'expo-linear-gradient';
-import Svg, { Line, Path } from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 
 export default function Tasks() {
   const { theme } = useTheme();
@@ -19,7 +19,7 @@ export default function Tasks() {
         
         <LinearGradient colors={theme.gradient}
         start={{x:0, y:0}}
-        end={{x:0, y:0}}
+        end={{x:1, y:1}}
         style={styles.container}>
 
             <View style={styles.drawerRevealIconContainer}>
