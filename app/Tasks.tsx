@@ -50,6 +50,20 @@ export default function Tasks() {
     setTasks(prev => prev.filter(task => task.id !== id))
   };
 
+  const uncompletedTasks = tasks.filter(task => !task.completed);
+  const completedTasks = tasks.filter(tasks => tasks.completed);
+
+  const TaskItem = ({ task }: { task: Task }) => (
+    <View style={styles.individualTaskContainer}>
+
+      <TouchableOpacity style = {[ styles.selectableCircles, { borderColor: theme.accent, backgroundColor: task.completed ? theme.primaryColor : 'transparent' }]}
+         onPress={() => toggleTaskCompletion(task.id)}>
+         <Text style={styles.individualTasksContainerText}>{task.title}</Text>
+      </TouchableOpacity>
+
+    </View>
+  );
+
     return (
         
         <LinearGradient colors={theme.gradient}
@@ -80,7 +94,7 @@ export default function Tasks() {
                     <Text style = {styles.uncompletedTasksText}> Uncompleted Tasks </Text>
                   </View>
 
-              
+          
 
 
                     <TouchableOpacity> 
