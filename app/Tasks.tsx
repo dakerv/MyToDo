@@ -15,6 +15,12 @@ export default function Tasks() {
     setIsSidebarOpen(false);
   }
 
+  type Task = {
+    id: string;
+    title: string;
+    completed: boolean;
+  };
+  
     return (
         
         <LinearGradient colors={theme.gradient}
@@ -40,7 +46,22 @@ export default function Tasks() {
               </View>
 
                 <View style = {styles.uncompletedAndCompletedTasksContainer}>
+                  
+                  <View style = {[  styles.uncompletedTasksContainer, { backgroundColor: theme.accent}]}>
+                    <Text style = {styles.uncompletedTasksText}> Uncompleted Tasks </Text>
+                  </View>
 
+                  <View style = {styles.individualTaskContainer}>
+                  <View style = {[styles.selectableCircles, {backgroundColor: theme.accent}]}> 
+                    <Text style = {styles.individualTasksContainerText}> Do dishes </Text>
+                  </View>
+                  </View>
+
+
+                    <TouchableOpacity> 
+                      <Image source={require('../assets/images/Frame.png')} />
+                      <Text> Add task </Text>
+                    </TouchableOpacity>
                 </View>
 
         <View style={styles.waveWrapper}>
@@ -80,8 +101,13 @@ const styles = StyleSheet.create( {
     fontSize: 20,
   },
   drawerRevealIconContainer: {
-    width: '100%',
-    padding: 20
+    position: 'absolute',
+    width: 600,
+    left: 0,
+    height: 90,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    paddingTop: 45,
+    padding: 18
   },
   drawerRevealIcon: {
     alignSelf: 'flex-start',
@@ -124,19 +150,53 @@ const styles = StyleSheet.create( {
         marginBottom: 30,
   },
   uncompletedAndCompletedTasksContainer: {
-        height: 550,
+        height: 580,
         width: '100%',
         backgroundColor: 'rgba(0, 0, 0, 0.4)',
         borderRadius: 8,
         padding: 20,
   },
- waveWrapper: {
-  position: 'absolute',
-  bottom: -15,
-  left: -30,
-  width: 500,
-  overflow: 'hidden',
-  height: 120,
+  uncompletedTasksContainer: {
+        paddingLeft: 10,
+        paddingRight: 12,
+        height: 50,
+        width: 350,
+        borderRadius: 8,
+        marginBottom: 15,
+        paddingTop: 14,
+   
+  },
+  uncompletedTasksText: {
+        fontSize: 17,
+        fontWeight: '600',
+        color: 'white',
+  },
+  individualTaskContainer: {
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        height: 50,
+        width: 350,
+        backgroundColor: 'rgba (0, 0, 0, 0.4)',
+        borderRadius: 8,
+        gap: 10
+  },
+  individualTasksContainerText: {
+        fontSize: 17,
+        fontWeight: '600',
+        color: 'white',
+  },
+  selectableCircles: {
+        width: 24,
+        height: 24,
+        borderWidth: 3
+  },
+  waveWrapper: {
+        position: 'absolute',
+        bottom: -15,
+        left: -30,
+        width: 500,
+        overflow: 'hidden',
+        height: 120,
 }
 }
 )

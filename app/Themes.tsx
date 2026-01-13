@@ -16,8 +16,8 @@ export default function Themes () {
     }
 
     const themeOptions: {id: string; image: any; name: ThemeName; description: string; }[] = [
-        { id: '1', image: require ('../assets/images/Petal Icon.png'), name: 'Petal', description: 'Soft pink and black elegance'},
-        { id: '2', image: require ('../assets/images/Mint Icon.png'), name: 'Mint', description: 'Fresh green and black harmony'},
+        { id: '1', image: require ('../assets/images/Petal Icon.png'), name: 'Petal', description: 'Dark pink elegance'},
+        { id: '2', image: require ('../assets/images/Mint Icon.png'), name: 'Mint', description: 'Dark green harmony'},
         { id: '3', image: require ('../assets/images/Neutral Icon.png'), name: 'Neutral', description: 'Professional black and white'},
     ]
     return (
