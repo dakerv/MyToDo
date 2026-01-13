@@ -40,10 +40,14 @@ export default function Tasks() {
 
   const toggleTaskCompletion = (id: string) => {
     setTasks(prev =>
-      prev.map(task => task.id === id ? { ...task, completed: !task.completed } 
+      prev.map(task => task.id === id ? { ...task, completed: !task.completed } //adding ...tasks is to add the old completed value and not lose your whole type. without it, native would update the whole thing
         : task
       )
     );
+  };
+
+  const deleteTask = (id: string) => {
+    setTasks(prev => prev.filter(task => task.id !== id))
   };
 
     return (
@@ -76,11 +80,7 @@ export default function Tasks() {
                     <Text style = {styles.uncompletedTasksText}> Uncompleted Tasks </Text>
                   </View>
 
-                  <View style = {styles.individualTaskContainer}>
-                  <View style = {[styles.selectableCircles, {backgroundColor: theme.accent}]}> 
-                    <Text style = {styles.individualTasksContainerText}> Do dishes </Text>
-                  </View>
-                  </View>
+              
 
 
                     <TouchableOpacity> 
