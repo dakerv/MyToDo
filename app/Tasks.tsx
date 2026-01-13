@@ -24,7 +24,7 @@ export default function Tasks() {
   const [tasks, setTasks] = useState<Task[]>([
     { id: '1', title: 'Do dishes', completed: false },
     { id: '2', title: 'Clean room', completed: false },
-    { id: '3', title: 'Buy groceries', completed: false},
+    { id: '3', title: 'Buy groceries', completed: false },
     { id: '4', title: 'Walk the dog', completed: true },
     { id: '5', title: 'Read a book', completed: true },
   ]);
@@ -61,6 +61,10 @@ export default function Tasks() {
          <Text style={styles.individualTasksContainerText}>{task.title}</Text>
       </TouchableOpacity>
 
+       <TouchableOpacity onPress={() => deleteTask(task.id)} style={{ marginLeft: 'auto' }}>
+        <Text style={{ color: 'red', fontWeight: 'bold', fontSize: 18 }}>X</Text>
+      </TouchableOpacity>
+
     </View>
   );
 
@@ -91,15 +95,18 @@ export default function Tasks() {
                 <View style = {styles.uncompletedAndCompletedTasksContainer}>
                   
                   <View style = {[  styles.uncompletedTasksContainer, { backgroundColor: theme.accent}]}>
-                    <Text style = {styles.uncompletedTasksText}> Uncompleted Tasks </Text>
+                    <Text style = {styles.uncompletedTasksText}> Uncompletedh Tasks </Text>
                   </View>
+                  {uncompletedTasks.map(task => (
+                    <TaskItem key={task.id} task={task} />
+                  ))}
 
-          
+                 
 
-
-                    <TouchableOpacity> 
+                    <TouchableOpacity style={styles.addTaskContainer} 
+                                      onPress={addTask}> 
                       <Image source={require('../assets/images/Frame.png')} />
-                      <Text> Add task </Text>
+                      <Text style ={styles.addTaskStyle}> Add task </Text>
                     </TouchableOpacity>
                 </View>
 
@@ -213,7 +220,6 @@ const styles = StyleSheet.create( {
   individualTaskContainer: {
         flexDirection: 'row',
         alignItems: 'flex-start',
-        height: 50,
         width: 350,
         backgroundColor: 'rgba (0, 0, 0, 0.4)',
         borderRadius: 8,
@@ -228,6 +234,19 @@ const styles = StyleSheet.create( {
         width: 24,
         height: 24,
         borderWidth: 3
+  },
+  addTaskStyle: {
+        color: 'white',
+        fontSize: 16
+  },
+  addTaskContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 10,
+        marginBottom: 15,
+        backgroundColor: 'orange',
+        height: 40,
+        justifyContent: 'center',
   },
   waveWrapper: {
         position: 'absolute',
