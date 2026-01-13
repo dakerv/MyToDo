@@ -20,7 +20,32 @@ export default function Tasks() {
     title: string;
     completed: boolean;
   };
-  
+
+  const [tasks, setTasks] = useState<Task[]>([
+    { id: '1', title: 'Do dishes', completed: false },
+    { id: '2', title: 'Clean room', completed: false },
+    { id: '3', title: 'Buy groceries', completed: false},
+    { id: '4', title: 'Walk the dog', completed: true },
+    { id: '5', title: 'Read a book', completed: true },
+  ]);
+
+  const addTask = () => {
+    const newTask: Task = {
+      id: Date.now().toString(),
+      title: 'New Task',
+      completed: false,
+    };
+    setTasks(prev => [newTask, ...prev]);
+  }
+
+  const toggleTaskCompletion = (id: string) => {
+    setTasks(prev =>
+      prev.map(task => task.id === id ? { ...task, completed: !task.completed } 
+        : task
+      )
+    );
+  };
+
     return (
         
         <LinearGradient colors={theme.gradient}
