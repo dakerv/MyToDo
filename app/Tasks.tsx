@@ -41,7 +41,7 @@ export default function Tasks() {
   const toggleTaskCompletion = (id: string) => {
     setTasks(prev =>
       prev.map(task => task.id === id ? { ...task, completed: !task.completed } //adding ...tasks is to add the old completed value and not lose your whole type. without it, native would update the whole thing
-        : task
+      : task
       )
     );
   };
@@ -95,13 +95,11 @@ export default function Tasks() {
                 <View style = {styles.uncompletedAndCompletedTasksContainer}>
                   
                   <View style = {[  styles.uncompletedTasksContainer, { backgroundColor: theme.accent}]}>
-                    <Text style = {styles.uncompletedTasksText}> Uncompletedh Tasks </Text>
+                    <Text style = {styles.uncompletedTasksText}> Uncompleted Tasks </Text>
                   </View>
                   {uncompletedTasks.map(task => (
                     <TaskItem key={task.id} task={task} />
                   ))}
-
-                 
 
                     <TouchableOpacity style={styles.addTaskContainer} 
                                       onPress={addTask}> 
@@ -210,7 +208,6 @@ const styles = StyleSheet.create( {
         borderRadius: 8,
         marginBottom: 15,
         paddingTop: 14,
-   
   },
   uncompletedTasksText: {
         fontSize: 17,
@@ -219,11 +216,14 @@ const styles = StyleSheet.create( {
   },
   individualTaskContainer: {
         flexDirection: 'row',
-        alignItems: 'flex-start',
-        width: 350,
-        backgroundColor: 'rgba (0, 0, 0, 0.4)',
-        borderRadius: 8,
-        gap: 10
+        alignItems: 'center',
+        width: '100%',
+        minHeight: 50,
+        backgroundColor: 'rgba(0, 0, 0, 0.4)',
+        borderRadius: 10,
+        paddingHorizontal: 12,
+        paddingVertical: 10,
+        marginBottom: 10,  
   },
   individualTasksContainerText: {
         fontSize: 17,
@@ -244,7 +244,6 @@ const styles = StyleSheet.create( {
         alignItems: 'center',
         gap: 10,
         marginBottom: 15,
-        backgroundColor: 'orange',
         height: 40,
         justifyContent: 'center',
   },
@@ -255,7 +254,7 @@ const styles = StyleSheet.create( {
         width: 500,
         overflow: 'hidden',
         height: 120,
-}
+ }
 }
 )
 
