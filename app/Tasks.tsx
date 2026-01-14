@@ -2,13 +2,15 @@ import Sidebar, { Pages } from '@/components/sidebar';
 import { useTheme } from '@/context/ThemeContext';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useState } from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import Svg, { Path } from 'react-native-svg';
+import Feather from '@expo/vector-icons/Feather';
 
 export default function Tasks() {
   const { theme } = useTheme();
   const [isSideBarOpen, setIsSidebarOpen] = useState(false);
   const [activePage, setActivePage] = useState<Pages>('Tasks');
+  const [newTaskTitle, setNewTaskTitle] = useState('');
 
   const handleActivePage = (page: Pages) => {
     setActivePage(page);
@@ -30,13 +32,17 @@ export default function Tasks() {
   ]);
 
   const addTask = () => {
-    const newTask: Task = {
-      id: Date.now().toString(),
-      title: 'New Task',
-      completed: false,
-    };
-    setTasks(prev => [newTask, ...prev]);
-  }
+  if (!newTaskTitle.trim()) return;
+
+  const newTask: Task = {
+    id: Date.now().toString(),
+    title: newTaskTitle,
+    completed: false,
+  };
+
+  setTasks(prev => [newTask, ...prev]);
+  setNewTaskTitle('');
+};
 
   const toggleTaskCompletion = (id: string) => {
     setTasks(prev =>
@@ -57,9 +63,11 @@ export default function Tasks() {
     <View style={styles.individualTaskContainer}>
 
       <TouchableOpacity style = {[ styles.selectableCircles, { borderColor: theme.accent, backgroundColor: task.completed ? theme.primaryColor : 'transparent' }]}
-         onPress={() => toggleTaskCompletion(task.id)}>
-         <Text style={styles.individualTasksContainerText}>{task.title}</Text>
+         onPress={() => toggleTaskCompletion(task.id)}> 
+         {task.completed &&(<Feather name="check" size={24} color="black" /> )} 
       </TouchableOpacity>
+
+      <Text style={styles.individualTasksContainerText}>{task.title}</Text>
 
        <TouchableOpacity onPress={() => deleteTask(task.id)} style={{ marginLeft: 'auto' }}>
         <Text style={{ color: 'red', fontWeight: 'bold', fontSize: 18 }}>X</Text>
@@ -101,11 +109,26 @@ export default function Tasks() {
                     <TaskItem key={task.id} task={task} />
                   ))}
 
-                    <TouchableOpacity style={styles.addTaskContainer} 
-                                      onPress={addTask}> 
+                    <TextInput
+                      value={newTaskTitle}
+                      onChangeText={setNewTaskTitle}
+                      placeholder="New task title"
+                      placeholderTextColor="rgba(255,255,255,0.5)"
+                      style={[styles.taskInput, { borderColor: theme.accent, color: 'white' }]}/>
+
+                    <TouchableOpacity style={styles.addTaskContainer} onPress={addTask}> 
                       <Image source={require('../assets/images/Frame.png')} />
                       <Text style ={styles.addTaskStyle}> Add task </Text>
                     </TouchableOpacity>
+
+
+                    <View style = {[ styles.uncompletedTasksContainer, {backgroundColor: theme.accent }]}>
+                      <Text style = {styles.uncompletedTasksText}> Completed Tasks </Text>
+                    </View>
+                    {completedTasks.map(task => (
+                    <TaskItem key={task.id} task={task} /> ))}
+                    
+                    
                 </View>
 
         <View style={styles.waveWrapper}>
@@ -207,7 +230,7 @@ const styles = StyleSheet.create( {
         width: 350,
         borderRadius: 8,
         marginBottom: 15,
-        paddingTop: 14,
+        paddingTop: 16,
   },
   uncompletedTasksText: {
         fontSize: 17,
@@ -223,7 +246,8 @@ const styles = StyleSheet.create( {
         borderRadius: 10,
         paddingHorizontal: 12,
         paddingVertical: 10,
-        marginBottom: 10,  
+        marginBottom: 10,
+        flexWrap: 'wrap',             
   },
   individualTasksContainerText: {
         fontSize: 17,
@@ -233,7 +257,9 @@ const styles = StyleSheet.create( {
   selectableCircles: {
         width: 24,
         height: 24,
-        borderWidth: 3
+        borderRadius: 15,
+        borderWidth: 3,
+        marginRight: 15,
   },
   addTaskStyle: {
         color: 'white',
@@ -247,6 +273,15 @@ const styles = StyleSheet.create( {
         height: 40,
         justifyContent: 'center',
   },
+  taskInput: {
+        height: 45,
+        borderWidth: 1,
+        borderRadius: 8,
+        paddingHorizontal: 12,
+        marginBottom: 10,
+        fontSize: 16,
+},
+
   waveWrapper: {
         position: 'absolute',
         bottom: -15,
