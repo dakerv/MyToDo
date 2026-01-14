@@ -1,10 +1,11 @@
 import Sidebar, { Pages } from '@/components/sidebar';
 import { useTheme } from '@/context/ThemeContext';
+import EvilIcons from '@expo/vector-icons/EvilIcons';
+import Feather from '@expo/vector-icons/Feather';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import Svg, { Path } from 'react-native-svg';
-import Feather from '@expo/vector-icons/Feather';
 
 export default function Tasks() {
   const { theme } = useTheme();
@@ -64,13 +65,13 @@ export default function Tasks() {
 
       <TouchableOpacity style = {[ styles.selectableCircles, { borderColor: theme.accent, backgroundColor: task.completed ? theme.primaryColor : 'transparent' }]}
          onPress={() => toggleTaskCompletion(task.id)}> 
-         {task.completed && (<Feather name="check" size={24} color="black" /> )} 
+         {task.completed && (<Feather name="check" size={15} color="black" style={{ padding: 2}} /> )} 
       </TouchableOpacity>
 
       <Text style={styles.individualTasksContainerText}>{task.title}</Text>
 
        <TouchableOpacity onPress={() => deleteTask(task.id)} style={{ marginLeft: 'auto' }}>
-        <Text style={{ color: 'red', fontWeight: 'bold', fontSize: 18 }}>X</Text>
+        <EvilIcons name="close" size={24} color="black" />
       </TouchableOpacity>
 
     </View>
