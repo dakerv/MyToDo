@@ -59,6 +59,22 @@ export default function Reminders () {
     const completedReminders = reminders.filter(reminder => reminder.completed);
     const uncompletedReminders = reminders.filter(reminder => !reminder.completed);
 
+     const ReminderItem = ({ reminder }: { reminder: Reminder }) => (
+    <View style={styles.individualTaskContainer}>
+
+      <TouchableOpacity style = {[ styles.selectableCircles, { borderColor: theme.accent, backgroundColor: reminder.completed ? theme.primaryColor : 'transparent' }]}
+         onPress={() => toggleReminderCompletion(reminder.id)}> 
+         {reminder.completed && (<Feather name="check" size={15} color="black" style={{ padding: 2 }}/> )} 
+      </TouchableOpacity>
+
+      <Text style={styles.individualTasksContainerText}>{reminder.title}</Text>
+
+       <TouchableOpacity onPress={() => deleteReminder(reminder.id)} style={{ marginLeft: 'auto' }}>
+        <EvilIcons name="close" size={24} color="black" />
+      </TouchableOpacity>
+
+    </View>
+
     return (
         <LinearGradient colors={theme.gradient}
         start={{x: 0, y: 0}}
