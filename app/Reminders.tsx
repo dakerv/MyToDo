@@ -13,6 +13,10 @@ export default function Reminders () {
     const [isSideBarOpen, setIsSidebarOpen] = useState(false);
     const [activePage, setActivePage] = useState<Pages>('Reminders')
     const [newReminderTitle, setNewReminderTitle] = useState('');
+    const [newReminderTime, setNewReminderTime] = useState('');
+    const [newReminderDate, setNewReminderDate] = useState('');
+    const [newReminderNote, setNewReminderNote] = useState('');
+    
 
     const handleActivePage = (page: Pages) => {
         setActivePage(page);
@@ -58,18 +62,20 @@ export default function Reminders () {
         setReminders(prev => prev.filter(reminder => reminder.id !== id))
     };
 
-    const completedReminders = reminders.filter(reminder => reminder.completed);
     const uncompletedReminders = reminders.filter(reminder => !reminder.completed);
+    const completedReminders = reminders.filter(reminder => reminder.completed);
 
      const ReminderItem = ({ reminder }: { reminder: Reminder }) => (
     <View style={styles.individualReminderContainer}>
 
-      <TouchableOpacity style = {[ styles.selectableCircles, { borderColor: theme.accent, backgroundColor: reminder.completed ? theme.primaryColor : 'transparent' }]}
+      <TouchableOpacity style = {[ styles.selectableSquares, { borderColor: theme.accent, backgroundColor: reminder.completed ? theme.primaryColor : 'transparent' }]}
          onPress={() => toggleReminderCompletion(reminder.id)}> 
          {reminder.completed && (<Feather name="check" size={15} color="black" style={{ padding: 2 }}/> )} 
       </TouchableOpacity>
 
-      <Text style={styles.individualTasksContainerText}>{reminder.title}</Text>
+      <Text style={styles.individualReminderContainerText}>{reminder.title}</Text>
+      <Text style={styles.individualReminderContainerText}> at {reminder.time} on {reminder.date} </Text>
+
 
        <TouchableOpacity onPress={() => deleteReminder(reminder.id)} style={{ marginLeft: 'auto' }}>
         <EvilIcons name="close" size={24} color="black" />
@@ -242,15 +248,15 @@ const styles = StyleSheet.create ({
         marginBottom: 10,
         flexWrap: 'wrap',             
   },
-  individualTasksContainerText: {
+  individualReminderContainerText: {
         fontSize: 17,
         fontWeight: '600',
         color: 'white',
   },
-  selectableCircles: {
+  selectableSquares: {
         width: 24,
         height: 24,
-        borderRadius: 15,
+        borderRadius: 2,
         borderWidth: 3,
         marginRight: 15,
   },
