@@ -46,10 +46,14 @@ export default function Reminders () {
     const newReminder: Reminder = {
         id: Date.now().toString(),
         title: newReminderTitle.trim(),
+        date: newReminderDate.trim(),
         time: newReminderTime.trim(),
-        completed: false
-        date: today.toISOString().split('T')[0],
+        completed: false,
     };
+
+    if (newReminderNote.trim()) {
+        newReminder.note = newReminderNote.trim();
+    }
 
     setReminders(prev => [newReminder, ...prev]);
     setNewReminderTitle('');
