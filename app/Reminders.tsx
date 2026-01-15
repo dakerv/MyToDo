@@ -2,7 +2,7 @@ import Sidebar, { Pages } from '@/components/sidebar';
 import { useTheme } from '@/context/ThemeContext';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useState } from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View, TextInput } from "react-native";
 import Svg, { Path } from 'react-native-svg';
 
 
@@ -15,6 +15,17 @@ export default function Reminders () {
         setActivePage(page);
         setIsSidebarOpen(false);
     }
+
+    type Reminder = {
+        id: string;
+        title: string;
+        time:  string;
+        completed: boolean;
+        note?: string;
+        date: string;
+    }
+
+    const addReminder = () => {
 
     return (
         <LinearGradient colors={theme.gradient}
