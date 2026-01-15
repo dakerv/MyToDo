@@ -40,12 +40,14 @@ export default function Reminders () {
 
     const addReminder = () => {
         if (!newReminderTitle.trim()) return;
+        if (!newReminderDate.trim()) return;
+        if (!newReminderTime.trim()) return;
 
     const newReminder: Reminder = {
         id: Date.now().toString(),
-        title: newReminderTitle,
-        time: '12:00 AM',
-        completed: false,
+        title: newReminderTitle.trim(),
+        time: newReminderTime.trim(),
+        completed: false
         date: today.toISOString().split('T')[0],
     };
 
@@ -125,18 +127,18 @@ export default function Reminders () {
                 style={[styles.reminderInput, { borderColor: theme.accent, color: 'white' }]}/>
 
             <TextInput
-              value={newReminderTime}
-              onChangeText={setNewReminderTime}
-              placeholder="New reminder time"
-              placeholderTextColor="rgba(255,255,255,0.5)"
-              style={[styles.reminderInput, { borderColor: theme.accent, color: 'white' }]}/>
+               value={newReminderTime}
+               onChangeText={setNewReminderTime}
+               placeholder="New reminder time"
+               placeholderTextColor="rgba(255,255,255,0.5)"
+               style={[styles.reminderInput, { borderColor: theme.accent, color: 'white' }]}/>
 
             <TextInput
-              value={newReminderDate}
-              onChangeText={setNewReminderDate}
-              placeholder="New reminder date"
-              placeholderTextColor="rgba(255,255,255,0.5)"
-              style={[styles.reminderInput, { borderColor: theme.accent, color: 'white' }]}/>
+               value={newReminderDate}
+               onChangeText={setNewReminderDate}
+               placeholder="New reminder date"
+               placeholderTextColor="rgba(255,255,255,0.5)"
+               style={[styles.reminderInput, { borderColor: theme.accent, color: 'white' }]}/>
 
             <TextInput
               value={newReminderNote}
