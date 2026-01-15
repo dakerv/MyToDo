@@ -4,6 +4,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import React, { use, useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View, TextInput } from "react-native";
 import Svg, { Path } from 'react-native-svg';
+import EvilIcons from '@expo/vector-icons/EvilIcons';
+import Feather from '@expo/vector-icons/Feather';
 
 
 export default function Reminders () {
