@@ -56,6 +56,9 @@ export default function Reminders () {
         setReminders(prev => prev.filter(reminder => reminder.id !== id))
     };
 
+    const completedReminders = reminders.filter(reminder => reminder.completed);
+    const uncompletedReminders = reminders.filter(reminder => !reminder.completed);
+
     return (
         <LinearGradient colors={theme.gradient}
         start={{x: 0, y: 0}}
