@@ -57,6 +57,9 @@ export default function Reminders () {
 
     setReminders(prev => [newReminder, ...prev]);
     setNewReminderTitle('');
+    setNewReminderDate('');
+    setNewReminderTime('');
+    setNewReminderNote('');
 };
 
     const toggleReminderCompletion = (id: string) => {
