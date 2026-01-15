@@ -1,11 +1,11 @@
 import Sidebar, { Pages } from '@/components/sidebar';
 import { useTheme } from '@/context/ThemeContext';
-import { LinearGradient } from 'expo-linear-gradient';
-import React, { use, useState } from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View, TextInput } from "react-native";
-import Svg, { Path } from 'react-native-svg';
 import EvilIcons from '@expo/vector-icons/EvilIcons';
 import Feather from '@expo/vector-icons/Feather';
+import { LinearGradient } from 'expo-linear-gradient';
+import React, { useState } from "react";
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import Svg, { Path } from 'react-native-svg';
 
 
 export default function Reminders () {
@@ -76,6 +76,7 @@ export default function Reminders () {
       </TouchableOpacity>
 
     </View>
+    );
 
     return (
         <LinearGradient colors={theme.gradient}
