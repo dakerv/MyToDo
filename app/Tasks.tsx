@@ -65,7 +65,7 @@ export default function Tasks() {
 
       <TouchableOpacity style = {[ styles.selectableCircles, { borderColor: theme.accent, backgroundColor: task.completed ? theme.primaryColor : 'transparent' }]}
          onPress={() => toggleTaskCompletion(task.id)}> 
-         {task.completed && (<Feather name="check" size={15} color="black" style={{ padding: 2}} /> )} 
+         {task.completed && (<Feather name="check" size={15} color="black" style={{ padding: 2 }}/> )} 
       </TouchableOpacity>
 
       <Text style={styles.individualTasksContainerText}>{task.title}</Text>
@@ -282,7 +282,6 @@ const styles = StyleSheet.create( {
         marginBottom: 10,
         fontSize: 16,
 },
-
   waveWrapper: {
         position: 'absolute',
         bottom: -15,

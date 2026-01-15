@@ -1,7 +1,9 @@
 
 import Sidebar, { Pages } from '@/components/sidebar';
 import React, { useState } from "react";
-import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { LinearGradient } from 'react-native-svg';
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import Svg, { Path } from 'react-native-svg';
 
 
 export default function Reminders () {
