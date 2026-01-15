@@ -1,7 +1,7 @@
 import Sidebar, { Pages } from '@/components/sidebar';
 import { useTheme } from '@/context/ThemeContext';
 import { LinearGradient } from 'expo-linear-gradient';
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View, TextInput } from "react-native";
 import Svg, { Path } from 'react-native-svg';
 
@@ -10,11 +10,16 @@ export default function Reminders () {
     const { theme } = useTheme();
     const [isSideBarOpen, setIsSidebarOpen] = useState(false);
     const [activePage, setActivePage] = useState<Pages>('Reminders')
+    const [newReminderTitle, setNewReminderTitle] = useState('');
 
     const handleActivePage = (page: Pages) => {
         setActivePage(page);
         setIsSidebarOpen(false);
     }
+
+    const [reminders, setReminders] = useState<Reminder[]>([
+        { id: '1', title: 'Doctor Appointment', time: '10:00 AM', completed: false, date: '2024-06-20' },
+    ]);
 
     type Reminder = {
         id: string;
@@ -25,7 +30,23 @@ export default function Reminders () {
         date: string;
     }
 
+    const today = new Date();
+
     const addReminder = () => {
+        if (!newReminderTitle.trim()) return;
+
+    const newReminder: Reminder = {
+        id: Date.now().toString(),
+        title: newReminderTitle,
+        time: '12:00 AM',
+        completed: false,
+        date: today.toISOString().split('T')[0],
+    };
+
+    setReminders(prev => [newReminder, ...prev]);
+    setNewReminderTitle('');
+};
+
 
     return (
         <LinearGradient colors={theme.gradient}
