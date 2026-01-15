@@ -1,8 +1,8 @@
-import { useTheme } from '@/context/ThemeContext';
 import Sidebar, { Pages } from '@/components/sidebar';
-import React, { useState } from "react";
+import { useTheme } from '@/context/ThemeContext';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import React, { useState } from "react";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Svg, { Path } from 'react-native-svg';
 
 
@@ -38,6 +38,13 @@ export default function Reminders () {
               <View style={styles.headerContainer}> 
                  <Text style ={styles.headerText}> Reminders </Text>
               </View>
+
+              
+               <View style = {styles.uncompletedAndCompletedTasksContainer}>
+                  <View style = {[  styles.uncompletedTasksContainer, { backgroundColor: theme.accent}]}>
+                     <Text style = {styles.uncompletedTasksText}> Pending Reminders </Text>
+                  </View>
+                </View>
              
 
          <View style={styles.waveWrapper}>
@@ -118,6 +125,27 @@ const styles = StyleSheet.create ({
     headerContainer: {
         marginTop: 65,
         marginBottom: 30,
+  },
+    uncompletedAndCompletedTasksContainer: {
+        height: 580,
+        width: '100%',
+        backgroundColor: 'rgba(0, 0, 0, 0.4)',
+        borderRadius: 8,
+        padding: 20,
+  },
+  uncompletedTasksContainer: {
+        paddingLeft: 10,
+        paddingRight: 12,
+        height: 50,
+        width: 350,
+        borderRadius: 8,
+        marginBottom: 15,
+        paddingTop: 16,
+  },
+  uncompletedTasksText: {
+        fontSize: 17,
+        fontWeight: '600',
+        color: 'white',
   },
     waveWrapper: {
         position: 'absolute',
