@@ -36,8 +36,6 @@ export default function Reminders () {
         date: string;
     }
 
-    const today = new Date();
-
     const addReminder = () => {
         if (!newReminderTitle.trim()) return;
         if (!newReminderDate.trim()) return;
