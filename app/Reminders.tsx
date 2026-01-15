@@ -118,7 +118,7 @@ export default function Reminders () {
                 placeholderTextColor="rgba(255,255,255,0.5)"
                 style={[styles.reminderInput, { borderColor: theme.accent, color: 'white' }]}/>
 
-                  <TouchableOpacity style={styles.addTaskContainer} onPress={addReminder}> 
+                  <TouchableOpacity style={styles.addReminderContainer} onPress={addReminder}> 
                      <Image source={require('../assets/images/Frame.png')} />
                         <Text style ={styles.addReminderStyle}> Add Reminder </Text>
                    </TouchableOpacity>
@@ -249,11 +249,11 @@ const styles = StyleSheet.create ({
         borderWidth: 3,
         marginRight: 15,
   },
-  addTaskStyle: {
+  addReminderStyle: {
         color: 'white',
         fontSize: 16
   },
-  addTaskContainer: {
+  addReminderContainer: {
         flexDirection: 'row',
         alignItems: 'center',
         gap: 10,
@@ -261,7 +261,7 @@ const styles = StyleSheet.create ({
         height: 40,
         justifyContent: 'center',
   },
-  taskInput: {
+  reminderInput: {
         height: 45,
         borderWidth: 1,
         borderRadius: 8,
