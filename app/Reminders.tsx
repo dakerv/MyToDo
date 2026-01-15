@@ -62,7 +62,7 @@ export default function Reminders () {
     const uncompletedReminders = reminders.filter(reminder => !reminder.completed);
 
      const ReminderItem = ({ reminder }: { reminder: Reminder }) => (
-    <View style={styles.individualTaskContainer}>
+    <View style={styles.individualReminderContainer}>
 
       <TouchableOpacity style = {[ styles.selectableCircles, { borderColor: theme.accent, backgroundColor: reminder.completed ? theme.primaryColor : 'transparent' }]}
          onPress={() => toggleReminderCompletion(reminder.id)}> 
@@ -120,7 +120,7 @@ export default function Reminders () {
 
                   <TouchableOpacity style={styles.addReminderContainer} onPress={addReminder}> 
                      <Image source={require('../assets/images/Frame.png')} />
-                        <Text style ={styles.addReminderStyle}> Add Reminder </Text>
+                        <Text style ={styles.addReminderStyle}> Add tReminder </Text>
                    </TouchableOpacity>
                 </View>
              
@@ -230,13 +230,13 @@ const styles = StyleSheet.create ({
         fontWeight: '600',
         color: 'white',
   },
-   individualTaskContainer: {
+   individualReminderContainer: {
         flexDirection: 'row',
         alignItems: 'center',
         width: '100%',
-        minHeight: 50,
+        minHeight: 160,
         backgroundColor: 'rgba(0, 0, 0, 0.4)',
-        borderRadius: 10,
+        borderRadius: 7,
         paddingHorizontal: 12,
         paddingVertical: 10,
         marginBottom: 10,
