@@ -47,6 +47,14 @@ export default function Reminders () {
     setNewReminderTitle('');
 };
 
+    const toggleReminderCompletion = (id: string) => {
+        setReminders(prev =>
+        prev.map(reminder => reminder.id === id ? { ...reminder, completed: !reminder.completed } : reminder));
+    };
+
+    const deleteReminder = (id: string) => {
+        setReminders(prev => prev.filter(reminder => reminder.id !== id))
+    };
 
     return (
         <LinearGradient colors={theme.gradient}
