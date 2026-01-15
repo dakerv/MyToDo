@@ -160,12 +160,17 @@ const styles = StyleSheet.create ({
         fontSize: 15,
         textDecorationLine: 'underline',
     },
-    drawerRevealIconContainer: {
-        width: '100%',
-        padding: 20
+   drawerRevealIconContainer: {
+    position: 'absolute',
+    width: 600,
+    left: 0,
+    height: 90,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    paddingTop: 45,
+    padding: 18
   },
-    drawerRevealIcon: {
-        alignSelf: 'flex-start',
+  drawerRevealIcon: {
+    alignSelf: 'flex-start',
   },
   circleGlow: {
         position: 'absolute',
