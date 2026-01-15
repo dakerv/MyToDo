@@ -23,9 +23,7 @@ export default function Reminders () {
         setIsSidebarOpen(false);
     }
 
-    const [reminders, setReminders] = useState<Reminder[]>([
-        { id: '1', title: 'Doctor Appointment', time: '10:00 AM', completed: false, date: '2024-06-20' },
-    ]);
+    const [reminders, setReminders] = useState<Reminder[]>([]);
 
     type Reminder = {
         id: string;
