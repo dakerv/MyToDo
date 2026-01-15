@@ -109,13 +109,13 @@ export default function Reminders () {
 
 
               <TextInput
-                value={newTaskTitle}
-                onChangeText={setNewTaskTitle}
-                placeholder="New task title"
+                value={newReminderTitle}
+                onChangeText={setNewReminderTitle}
+                placeholder="New reminder title"
                 placeholderTextColor="rgba(255,255,255,0.5)"
                 style={[styles.taskInput, { borderColor: theme.accent, color: 'white' }]}/>
-            
-                  <TouchableOpacity style={styles.addTaskContainer} onPress={addTask}> 
+
+                  <TouchableOpacity style={styles.addTaskContainer} onPress={addReminder}> 
                      <Image source={require('../assets/images/Frame.png')} />
                         <Text style ={styles.addTaskStyle}> Add task </Text>
                    </TouchableOpacity>
