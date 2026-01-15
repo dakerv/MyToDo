@@ -16,7 +16,7 @@ export default function Reminders () {
     const [newReminderTime, setNewReminderTime] = useState('');
     const [newReminderDate, setNewReminderDate] = useState('');
     const [newReminderNote, setNewReminderNote] = useState('');
-    
+
 
     const handleActivePage = (page: Pages) => {
         setActivePage(page);
@@ -123,6 +123,27 @@ export default function Reminders () {
                 placeholder="New reminder title"
                 placeholderTextColor="rgba(255,255,255,0.5)"
                 style={[styles.reminderInput, { borderColor: theme.accent, color: 'white' }]}/>
+
+            <TextInput
+              value={newReminderTime}
+              onChangeText={setNewReminderTime}
+              placeholder="New reminder time"
+              placeholderTextColor="rgba(255,255,255,0.5)"
+              style={[styles.reminderInput, { borderColor: theme.accent, color: 'white' }]}/>
+
+            <TextInput
+              value={newReminderDate}
+              onChangeText={setNewReminderDate}
+              placeholder="New reminder date"
+              placeholderTextColor="rgba(255,255,255,0.5)"
+              style={[styles.reminderInput, { borderColor: theme.accent, color: 'white' }]}/>
+
+            <TextInput
+              value={newReminderNote}
+              onChangeText={setNewReminderNote}
+              placeholder="New reminder note"
+              placeholderTextColor="rgba(255,255,255,0.5)"
+              style={[styles.reminderInput, { borderColor: theme.accent, color: 'white' }]}/>
 
                   <TouchableOpacity style={styles.addReminderContainer} onPress={addReminder}> 
                      <Image source={require('../assets/images/Frame.png')} />
