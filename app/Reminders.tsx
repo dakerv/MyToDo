@@ -106,26 +106,23 @@ export default function Reminders () {
                   <View style = {[  styles.uncompletedTasksContainer, { backgroundColor: theme.accent}]}>
                      <Text style = {styles.uncompletedTasksText}> Pending Reminders </Text>
                   </View>
-                </View>
+                  {uncompletedReminders.map(reminder => (
+                    <ReminderItem key={reminder.id} reminder={reminder} />
+                  ))}
 
-
+                  
               <TextInput
                 value={newReminderTitle}
                 onChangeText={setNewReminderTitle}
                 placeholder="New reminder title"
                 placeholderTextColor="rgba(255,255,255,0.5)"
-                style={[styles.taskInput, { borderColor: theme.accent, color: 'white' }]}/>
+                style={[styles.reminderInput, { borderColor: theme.accent, color: 'white' }]}/>
 
                   <TouchableOpacity style={styles.addTaskContainer} onPress={addReminder}> 
                      <Image source={require('../assets/images/Frame.png')} />
-                        <Text style ={styles.addTaskStyle}> Add task </Text>
+                        <Text style ={styles.addReminderStyle}> Add Reminder </Text>
                    </TouchableOpacity>
-            
-            
-                 <View style = {[ styles.uncompletedTasksContainer, {backgroundColor: theme.accent }]}>
-                    <Text style = {styles.uncompletedTasksText}> Completed Tasks </Text>
-                  </View>
-                        
+                </View>
              
 
          <View style={styles.waveWrapper}>
