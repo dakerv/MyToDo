@@ -83,7 +83,7 @@ export default function Reminders () {
 
 
        <TouchableOpacity onPress={() => deleteReminder(reminder.id)} style={{ marginLeft: 'auto' }}>
-        <EvilIcons name="close" size={24} color="black" />
+        <EvilIcons name="close" size={24} color="pink" />
       </TouchableOpacity>
 
     </View>
