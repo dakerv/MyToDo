@@ -115,7 +115,7 @@ export default function Reminders () {
               
                <View style = {styles.uncompletedAndCompletedTasksContainer}>
                   <View style = {[  styles.uncompletedTasksContainer, { backgroundColor: theme.accent}]}>
-                     <Text style = {styles.uncompletedTasksText}> Pending Reminders </Text>
+                     <Text style = {styles.uncompletedTasksText}> Pending Reminders. </Text>
                   </View>
                   {uncompletedReminders.map(reminder => (
                     <ReminderItem key={reminder.id} reminder={reminder} />
