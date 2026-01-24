@@ -109,7 +109,7 @@ export default function Reminders () {
              <View style = {[ styles.smallerSquare, {borderColor: theme.glowColor, backgroundColor: theme.glowColor }]}> </View>
 
               <View style={styles.headerContainer}> 
-                 <Text style ={styles.headerText}> Reminders </Text>
+                 <Text style ={styles.headerText}> Reminders hq </Text>
               </View>
 
               
