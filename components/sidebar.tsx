@@ -64,8 +64,7 @@ export default function Sidebar ({onSelectPage, isOpen, selectedPage, onClose }:
                         <Text style= {styles.textStyleOnly}>{item.title}</Text>
                         </View>
                     </TouchableOpacity>
-                )}
-                />
+                )}/>
                 </View>
             
         </Animated.View>

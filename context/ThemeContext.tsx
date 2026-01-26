@@ -43,7 +43,7 @@ export const themes : Record <ThemeName, Theme> = {
     bgHover: 'rgba(16, 185, 129, 0.1)',
     accent: 'rgba(16, 185, 129, 0.2)',
     glowColor: '#10b981',
-    },
+ },
 
     Neutral: {
     name: 'Neutral',
