@@ -104,7 +104,7 @@ export default function Tasks() {
                 <View style = {styles.uncompletedAndCompletedTasksContainer}>
                   
                   <View style = {[  styles.uncompletedTasksContainer, { backgroundColor: theme.accent}]}>
-                    <Text style = {styles.uncompletedTasksText}> Uncompleted Tasks </Text>
+                    <Text style = {styles.uncompletedTasksText}> Uncompleted Tasks Hello </Text>
                   </View>
                   {uncompletedTasks.map(task => (
                     <TaskItem key={task.id} task={task} />
