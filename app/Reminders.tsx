@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import {
     ScrollView,
     StyleSheet,
@@ -70,7 +70,7 @@ export function Reminders() {
 
   const toggleReminderCompletion = (id: number) => {
     setReminders(
-      reminders.map((reminder) =>
+      reminders.map((reminder: any) =>
         reminder.id === id
           ? { ...reminder, completed: !reminder.completed }
           : reminder,
@@ -79,11 +79,11 @@ export function Reminders() {
   }
 
   const pendingReminders = reminders.filter(
-    (reminder) => !reminder.completed,
+    (reminder: any) => !reminder.completed,
   )
 
   const completedReminders = reminders.filter(
-    (reminder) => reminder.completed,
+    (reminder: any) => reminder.completed,
   )
 
   return (
@@ -116,7 +116,7 @@ export function Reminders() {
           </View>
 
           <View style={styles.listSpacing}>
-            {pendingReminders.map((reminder) => (
+            {pendingReminders.map((reminder: any) => (
               <ReminderItem
                 key={reminder.id}
                 reminder={reminder}
@@ -146,7 +146,7 @@ export function Reminders() {
           </View>
 
           <View style={styles.listSpacing}>
-            {completedReminders.map((reminder) => (
+            {completedReminders.map((reminder: any) => (
               <ReminderItem
                 key={reminder.id}
                 reminder={reminder}
