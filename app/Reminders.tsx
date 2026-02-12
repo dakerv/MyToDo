@@ -5,13 +5,12 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native'
-import { ReminderItem } from '../components/ReminderItem'
-import { AddButton } from '../components/AddButton'
-import { useTheme, themes } from '../context/ThemeContext'
+import { ReminderItem } from '../components/reminderItem'
+import { AddButton } from '../components/addButton'
+import { useTheme } from '../context/ThemeContext'
 
 export function Reminders() {
   const { theme } = useTheme()
-  const currentTheme = themes[theme]
 
   const [reminders, setReminders] = useState([
     {
@@ -69,7 +68,7 @@ export function Reminders() {
     setReminders([...reminders, newReminder])
   }
 
-  const toggleReminderCompletion = (id) => {
+  const toggleReminderCompletion = (id: number) => {
     setReminders(
       reminders.map((reminder) =>
         reminder.id === id

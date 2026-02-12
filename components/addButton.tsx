@@ -7,16 +7,16 @@ import {
 } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Ionicons } from '@expo/vector-icons'
-import { useTheme, themes } from '../contexts/ThemeContext'
+import { useTheme } from '../context/ThemeContext'
 
-export function AddButton({ onPress, text }) {
+export function AddButton({ onPress, text }: { onPress: () => void; text: string }) {
   const { theme } = useTheme()
   const currentTheme = themes[theme]
 
   return (
     <Pressable onPress={onPress} style={styles.wrapper}>
       <LinearGradient
-        colors={[currentTheme.primaryDark, currentTheme.primary]}
+        colors={[theme.primaryDark, theme.primary]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }}
         style={styles.button}
