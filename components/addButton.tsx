@@ -1,12 +1,12 @@
+import { Ionicons } from '@expo/vector-icons'
+import { LinearGradient } from 'expo-linear-gradient'
 import React from 'react'
 import {
-  Text,
-  Pressable,
-  StyleSheet,
-  View,
+    Pressable,
+    StyleSheet,
+    Text,
+    View,
 } from 'react-native'
-import { LinearGradient } from 'expo-linear-gradient'
-import { Ionicons } from '@expo/vector-icons'
 import { useTheme } from '../context/ThemeContext'
 
 export function AddButton({ onPress, text }: { onPress: () => void; text: string }) {

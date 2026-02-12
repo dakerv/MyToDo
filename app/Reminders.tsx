@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
+    ScrollView,
+    StyleSheet,
+    Text,
+    View,
 } from 'react-native'
-import { ReminderItem } from '../components/reminderItem'
 import { AddButton } from '../components/addButton'
+import { ReminderItem } from '../components/reminderItem'
 import { useTheme } from '../context/ThemeContext'
 
 export function Reminders() {
