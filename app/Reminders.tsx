@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import { ReminderItem } from '../components/ReminderItem'
 import { AddButton } from '../components/AddButton'
-import { useTheme, themes } from '../contexts/ThemeContext'
+import { useTheme, themes } from '../context/ThemeContext'
 
 export function Reminders() {
   const { theme } = useTheme()
