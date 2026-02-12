@@ -11,7 +11,6 @@ import { useTheme } from '../context/ThemeContext'
 
 export function AddButton({ onPress, text }: { onPress: () => void; text: string }) {
   const { theme } = useTheme()
-  const currentTheme = themes[theme]
 
   return (
     <Pressable onPress={onPress} style={styles.wrapper}>

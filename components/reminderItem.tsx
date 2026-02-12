@@ -20,7 +20,6 @@ interface Reminder {
 
 export function ReminderItem({ reminder, onToggle }: { reminder: Reminder; onToggle: () => void }) {
   const { theme } = useTheme()
-  const currentTheme = themes[theme]
 
   return (
     <View
@@ -72,7 +71,7 @@ export function ReminderItem({ reminder, onToggle }: { reminder: Reminder; onTog
               editable={false}
               style={[
                 styles.smallInput,
-                { borderColor: currentTheme.border },
+                { borderColor: theme.border },
               ]}
             />
 
@@ -83,7 +82,7 @@ export function ReminderItem({ reminder, onToggle }: { reminder: Reminder; onTog
               editable={false}
               style={[
                 styles.smallInput,
-                { borderColor: currentTheme.border },
+                { borderColor: theme.border },
               ]}
             />
 
@@ -102,7 +101,7 @@ export function ReminderItem({ reminder, onToggle }: { reminder: Reminder; onTog
             editable={false}
             style={[
               styles.fullInput,
-              { borderColor: currentTheme.border },
+              { borderColor: theme.border },
             ]}
           />
         </View>
@@ -117,7 +116,7 @@ export function ReminderItem({ reminder, onToggle }: { reminder: Reminder; onTog
             multiline
             style={[
               styles.notesInput,
-              { borderColor: currentTheme.border },
+              { borderColor: theme.border },
             ]}
           />
         </View>

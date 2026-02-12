@@ -94,8 +94,8 @@ export function Reminders() {
         style={[
           styles.card,
           {
-            backgroundColor: currentTheme.bg,
-            borderColor: currentTheme.border,
+            backgroundColor: theme.bg,
+            borderColor: theme.border,
           },
         ]}
       >
@@ -105,8 +105,8 @@ export function Reminders() {
             style={[
               styles.sectionHeader,
               {
-                backgroundColor: currentTheme.accent,
-                borderColor: currentTheme.border,
+                backgroundColor: theme.accent,
+                borderColor: theme.border,
               },
             ]}
           >
@@ -127,7 +127,7 @@ export function Reminders() {
             ))}
           </View>
 
-          <AddButton onClick={addReminder} text="Add Reminder" />
+          <AddButton onPress={addReminder} text="Add Reminder" />
 
           {/* Completed Section */}
           <View
@@ -135,8 +135,8 @@ export function Reminders() {
               styles.sectionHeader,
               styles.completedSection,
               {
-                backgroundColor: currentTheme.accent,
-                borderColor: currentTheme.border,
+                backgroundColor: theme.accent,
+                borderColor: theme.border,
               },
             ]}
           >
