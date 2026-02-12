@@ -36,10 +36,10 @@ export function ReminderItem({ reminder, onToggle }: { reminder: Reminder; onTog
             styles.checkbox,
             {
               backgroundColor: reminder.completed
-                ? theme.primary
+                ? theme.primaryColor
                 : 'transparent',
               borderColor: reminder.completed
-                ? theme.primary
+                ? theme.primaryColor
                 : theme.primaryLight,
             },
           ]}

@@ -15,7 +15,7 @@ export function AddButton({ onPress, text }: { onPress: () => void; text: string
   return (
     <Pressable onPress={onPress} style={styles.wrapper}>
       <LinearGradient
-        colors={[theme.primaryDark, theme.primary]}
+        colors={[theme.primaryDark, theme.primaryColor]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }}
         style={styles.button}
