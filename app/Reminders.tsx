@@ -100,7 +100,7 @@ export function Reminders() {
         ]}
       >
         <View style={styles.innerPadding}>
-          {/* Pending Section */}
+       
           <View
             style={[
               styles.sectionHeader,
@@ -129,7 +129,7 @@ export function Reminders() {
 
           <AddButton onPress={addReminder} text="Add Reminder" />
 
-          {/* Completed Section */}
+          
           <View
             style={[
               styles.sectionHeader,
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     color: 'white',
     marginBottom: 16,
 
-    // drop shadow equivalent
+
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.4,
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 12,
 
-    // shadow-2xl equivalent
+
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 6 },
     shadowOpacity: 0.5,

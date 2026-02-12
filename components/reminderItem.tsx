@@ -28,7 +28,7 @@ export function ReminderItem({ reminder, onToggle }: { reminder: Reminder; onTog
         { borderColor: theme.border },
       ]}
     >
-      {/* Title + Checkbox */}
+     
       <View style={styles.headerRow}>
         <Pressable
           onPress={onToggle}
@@ -59,9 +59,9 @@ export function ReminderItem({ reminder, onToggle }: { reminder: Reminder; onTog
         </Text>
       </View>
 
-      {/* Details Section */}
+    
       <View style={styles.detailsContainer}>
-        {/* Time */}
+   
         <View style={styles.row}>
           <Text style={styles.label}>Time:</Text>
 
@@ -92,7 +92,7 @@ export function ReminderItem({ reminder, onToggle }: { reminder: Reminder; onTog
           </View>
         </View>
 
-        {/* Date */}
+      
         <View style={styles.row}>
           <Text style={styles.label}>Date:</Text>
 
@@ -106,7 +106,7 @@ export function ReminderItem({ reminder, onToggle }: { reminder: Reminder; onTog
           />
         </View>
 
-        {/* Notes */}
+       
         <View style={styles.notesRow}>
           <Text style={styles.label}>Notes:</Text>
 
