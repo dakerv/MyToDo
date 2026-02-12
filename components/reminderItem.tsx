@@ -18,7 +18,7 @@ interface Reminder {
   notes: string
 }
 
-export function ReminderItem({ reminder, onToggle }: { reminder: Reminder; onToggle: () => void }) {
+export const ReminderItem: React.FC<{ reminder: Reminder; onToggle: () => void }> = ({ reminder, onToggle }) => {
   const { theme } = useTheme()
 
   return (

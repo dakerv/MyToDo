@@ -60,7 +60,7 @@ export default function Tasks() {
   const uncompletedTasks = tasks.filter(task => !task.completed);
   const completedTasks = tasks.filter(tasks => tasks.completed);
 
-  const TaskItem = ({ task }: { task: Task }) => (
+  const TaskItem: React.FC<{ task: Task }> = ({ task }) => (
     <View style={styles.individualTaskContainer}>
 
       <TouchableOpacity style = {[ styles.selectableCircles, { borderColor: theme.accent, backgroundColor: task.completed ? theme.primaryColor : 'transparent' }]}

@@ -9,7 +9,7 @@ import {
 } from 'react-native'
 import { useTheme } from '../context/ThemeContext'
 
-export function AddButton({ onPress, text }: { onPress: () => void; text: string }) {
+export const AddButton: React.FC<{ onPress: () => void; text: string }> = ({ onPress, text }) => {
   const { theme } = useTheme()
 
   return (
