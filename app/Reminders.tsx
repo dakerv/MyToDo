@@ -1,15 +1,15 @@
 import { useState } from 'react'
 import {
-    ScrollView,
-    StyleSheet,
-    Text,
-    View,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
 } from 'react-native'
 import { AddButton } from '../components/addButton'
 import { ReminderItem } from '../components/reminderItem'
 import { useTheme } from '../context/ThemeContext'
 
-export function Reminders() {
+export default function Reminders() {
   const { theme } = useTheme()
 
   const [reminders, setReminders] = useState([
