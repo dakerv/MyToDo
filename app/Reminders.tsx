@@ -15,7 +15,7 @@ export default function Reminders() {
   const [reminders, setReminders] = useState([
     {
       id: 1,
-      title: 'Study for Test',
+      title: 'Study for Test or die',
       completed: false,
       time: {
         hours: '12',
