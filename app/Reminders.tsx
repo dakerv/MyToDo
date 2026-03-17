@@ -23,7 +23,7 @@ export default function Reminders() {
         period: 'PM',
       },
       date: '14th August',
-      notes: 'I need you to finish this before I sleep',
+      notes: 'I need you to finish this before I sleep my love',
     },
     {
       id: 2,
